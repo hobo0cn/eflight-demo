@@ -4,6 +4,7 @@ import {
 } from '@angular/core';
 
 import { AppState } from '../app.service';
+import { Location }               from '@angular/common';
 
 @Component({
   // The selector is what angular internally uses
@@ -25,7 +26,7 @@ export class LoginComponent implements OnInit {
   // TypeScript public modifiers
   constructor(
     public appState: AppState,
-
+    private location: Location
   ) {}
 
   public ngOnInit() {
@@ -37,6 +38,6 @@ export class LoginComponent implements OnInit {
     this.appState.set('username', value);
     this.localState.username = value;
     //TODO 跳转到dashboard页面
-    
+    this.location.go('/dashboard');
   }
 }

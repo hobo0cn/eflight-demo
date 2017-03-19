@@ -1,0 +1,24 @@
+<h2>任务列表</h2>
+
+<ul class="tasks">
+  <li *ngFor="let task of tasks"
+      >
+    <span class="badge">{{task.id}}</span>
+    <span>{{task.name}}</span>
+    <button class="delete"
+      (click)="delete(task); $event.stopPropagation()">x</button>
+  </li>
+</ul>
+<!-- <div *ngIf="selectedHero">
+  <h2>
+    {{selectedHero.name | uppercase}} is my hero
+  </h2>
+  <button (click)="gotoDetail()">View Details</button>
+</div> -->
+
+
+<!--
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+-->

@@ -32,8 +32,9 @@ export class DashboardComponent implements OnInit {
   public ngOnInit() {
     console.log('hello `dashboard` component');
     // this.title.getData().subscribe(data => this.data = data);
-    //TODO 通过TaskService获取任务列表数据
-
+    //通过TaskService获取任务列表数据
+    this.taskService.getTasks()
+      .then(tasks => this.tasks = tasks);
   }
 
 }

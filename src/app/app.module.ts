@@ -30,6 +30,7 @@ import { NoContentComponent } from './no-content';
 // import { XLargeDirective } from './home/x-large';
 import {LoginComponent} from './login'
 import {DashboardComponent} from './dashboard'
+import {TaskService} from './task.service'
 
 import '../styles/styles.scss';
 import '../styles/headings.css';
@@ -68,8 +69,10 @@ type StoreType = {
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
     ENV_PROVIDERS,
-    APP_PROVIDERS
+    APP_PROVIDERS,
+    TaskService
   ]
+
 })
 export class AppModule {
 
