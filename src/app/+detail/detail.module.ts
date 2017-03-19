@@ -5,7 +5,7 @@ import { RouterModule } from '@angular/router';
 
 import { routes } from './detail.routes';
 import { DetailComponent } from './detail.component';
-
+import {TaskService} from '../task.service';
 console.log('`Detail` bundle loaded asynchronously');
 
 @NgModule({
@@ -18,6 +18,9 @@ console.log('`Detail` bundle loaded asynchronously');
     FormsModule,
     RouterModule.forChild(routes),
   ],
+  providers: [ // expose our Services and Providers into Angular's dependency injection
+    TaskService
+  ]
 })
 export class DetailModule {
   public static routes = routes;

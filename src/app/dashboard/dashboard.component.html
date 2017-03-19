@@ -1,14 +1,17 @@
-<h2>任务列表</h2>
+<h2>服务列表</h2>
 
 <ul class="tasks">
   <li *ngFor="let task of tasks"
       >
     <span class="badge">{{task.id}}</span>
     <span>{{task.name}}</span>
-    <button class="delete"
-      (click)="delete(task); $event.stopPropagation()">x</button>
+    <span>{{getStatusString(task.status)}}</span>
+    <button class="open"
+      (click)="open(task.id); $event.stopPropagation()">打开</button>
   </li>
 </ul>
+
+<button (click)="newServiceRequest()">新服务需求</button>
 <!-- <div *ngIf="selectedHero">
   <h2>
     {{selectedHero.name | uppercase}} is my hero

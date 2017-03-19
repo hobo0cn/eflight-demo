@@ -30,6 +30,7 @@ import { NoContentComponent } from './no-content';
 // import { XLargeDirective } from './home/x-large';
 import {LoginComponent} from './login'
 import {DashboardComponent} from './dashboard'
+import {AreaSelectComponent} from './area-select'
 import {TaskService} from './task.service'
 
 import '../styles/styles.scss';
@@ -59,7 +60,8 @@ type StoreType = {
     NoContentComponent,
     // XLargeDirective
     LoginComponent,
-    DashboardComponent
+    DashboardComponent,
+    AreaSelectComponent
   ],
   imports: [ // import Angular's modules
     BrowserModule,

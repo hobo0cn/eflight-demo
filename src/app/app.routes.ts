@@ -4,14 +4,16 @@ import { Routes } from '@angular/router';
 import { NoContentComponent } from './no-content';
 import {LoginComponent} from './login'
 import {DashboardComponent} from './dashboard'
+import {AreaSelectComponent} from './area-select'
 import { DataResolver } from './app.resolver';
 
 export const ROUTES: Routes = [
-  { path: '',      component: LoginComponent },
+  { path: '',      component: DashboardComponent },
   { path: 'login',  component: LoginComponent },
   { path: 'dashboard',  component: DashboardComponent },
+  { path: 'area-select',  component: AreaSelectComponent },
   // { path: 'about', component: AboutComponent },
-  { path: 'detail', loadChildren: './+detail#DetailModule'},
-  { path: 'barrel', loadChildren: './+barrel#BarrelModule'},
+  { path: 'detail/:id', loadChildren: './+detail#DetailModule'},
+  // { path: 'barrel', loadChildren: './+barrel#BarrelModule'},
   { path: '**',    component: NoContentComponent },
 ];

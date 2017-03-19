@@ -18,17 +18,18 @@ export class TaskService {
     return Promise.resolve(TASKS);
   }
 
-  getTask(id: number): Promise<Task> {
+  getTask(id: string): Promise<Task> {
     // const url = `${this.heroesUrl}/${id}`;
     // return this.http.get(url)
     //   .toPromise()
     //   .then(response => response.json().data as Hero)
     //   .catch(this.handleError);
     for (var i = 0; i < TASKS.length; i++) {
-      if (TASKS[i].id===id){
+      if (String(TASKS[i].id)===id){
         return Promise.resolve(TASKS[i]);
       }
     }
+    return Promise.resolve(TASKS[0]);
   }
 
   // delete(id: number): Promise<void> {
