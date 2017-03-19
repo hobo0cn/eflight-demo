@@ -24,10 +24,12 @@ import { ROUTES } from './app.routes';
 import { AppComponent } from './app.component';
 import { APP_RESOLVER_PROVIDERS } from './app.resolver';
 import { AppState, InternalStateType } from './app.service';
-import { HomeComponent } from './home';
-import { AboutComponent } from './about';
+// import { HomeComponent } from './home';
+// import { AboutComponent } from './about';
 import { NoContentComponent } from './no-content';
-import { XLargeDirective } from './home/x-large';
+// import { XLargeDirective } from './home/x-large';
+import {LoginComponent} from './login'
+import {DashboardComponent} from './dashboard'
 
 import '../styles/styles.scss';
 import '../styles/headings.css';
@@ -51,10 +53,12 @@ type StoreType = {
   bootstrap: [ AppComponent ],
   declarations: [
     AppComponent,
-    AboutComponent,
-    HomeComponent,
+    // AboutComponent,
+    // HomeComponent,
     NoContentComponent,
-    XLargeDirective
+    // XLargeDirective
+    LoginComponent,
+    DashboardComponent
   ],
   imports: [ // import Angular's modules
     BrowserModule,

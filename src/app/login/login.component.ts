@@ -36,5 +36,7 @@ export class LoginComponent implements OnInit {
     console.log('loginSubmit', value);
     this.appState.set('username', value);
     this.localState.username = value;
+    //TODO 跳转到dashboard页面
+    
   }
 }
