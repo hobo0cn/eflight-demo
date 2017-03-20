@@ -1,10 +1,10 @@
 import "../custom-typings.d"
 import 'leaflet';
+
 import { Injectable } from "@angular/core";
 import { Http, Headers, RequestOptions } from "@angular/http";
 // import { Location } from "../core/location.class";
 import { Map } from "leaflet";
-
 
 @Injectable()
 export class MapService {
@@ -24,6 +24,8 @@ export class MapService {
                 attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
             })
         };
+
+
     }
 
     disableMouseEvent(elementId: string) {

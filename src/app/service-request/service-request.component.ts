@@ -9,7 +9,7 @@ import {
  } from '@angular/router';
 import { Task } from '../task';
 import { TaskService } from '../task.service';
-
+import { TaskStatusEnum} from '../task';
 @Component({
   // The selector is what angular internally uses
   // for `document.querySelectorAll(selector)` in our index.html
@@ -28,6 +28,12 @@ export class ServiceRequestComponent implements OnInit {
   // Set our default values
   // public TaskList = { username: '' };
   public new_task: Task;
+  public crop: string;
+  public publishTime: Date;
+  public finishTime: Date;
+  public   isUrgent: Boolean; // 是否加急
+  public   is3DModel: Boolean; // 是否3D建模
+  public   isReport: Boolean; // 是否需要报告
   // TypeScript public modifiers
   constructor(
     private location: Location,
@@ -46,8 +52,10 @@ export class ServiceRequestComponent implements OnInit {
   newTask(): void {
     console.log('new task');
     // TODO 插入新的task节点
-    
-    this.new_task.name = "test";
+
+    this.new_task.name = "无人机验标";
+    this.new_task.status = TaskStatusEnum.created;
+    this.new_task.crop = this.crop;
     this.taskService.create(this.new_task);
     this._router.navigate(['/dashboard']);
   }

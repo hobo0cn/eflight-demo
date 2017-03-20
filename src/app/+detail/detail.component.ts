@@ -22,6 +22,12 @@ console.log('`Detail` component loaded asynchronously');
     <div *ngIf="task">
 
       <p>{{task.id}}</p>
+      <div>
+        <p>调查品种：{{task.crop}} </p>
+        <p>计划完成时间：{{task.finishTime}} </p>
+        <p>总面积：{{task.acreage}} 亩</p>
+      </div>
+
       <span>
         <a [routerLink]=" ['./result-detail'] ">
           服务结果

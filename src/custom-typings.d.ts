@@ -1,4 +1,5 @@
 import '@types/leaflet';
+import 'leaflet-gcj02';
 /*
  * Custom Type Definitions
  * When including 3rd party modules you also need to include the type definition for the module

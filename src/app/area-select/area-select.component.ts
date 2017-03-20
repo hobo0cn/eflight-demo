@@ -53,7 +53,7 @@ export class AreaSelectComponent implements OnInit {
     // L.control.layers(this.mapService.baseMaps).addTo(map);
     // L.control.scale().addTo(map);
     // this.mapService.map = map;
-    
+
     // this.geocoder.getCurrentLocation()
     //     .subscribe(
     //         location => map.panTo([location.latitude, location.longitude]),

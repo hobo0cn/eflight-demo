@@ -1,2 +1,20 @@
 <h2>新服务需求</h2>
-<button (click)="newTask()">创建新服务需求</button>
+
+<div>
+  <label>调查品种： </label>
+    <input [(ngModel)]="crop" placeholder="调查品种" />
+</div>
+<div>
+  <label>计划开始时间： </label>
+    <input [(ngModel)]="publishTime" placeholder="计划开始时间" id="datetimepicker">
+</div>
+<div>
+  <label>计划结束时间： </label>
+    <input [(ngModel)]="finishTime" placeholder="计划结束时间" id="datetimepicker">
+</div>
+<div>
+  <input type="checkbox" [(ngModel)]="isUrgent" checked>加急<br>
+  <input type="checkbox" [(ngModel)]="is3DModel" checked>生成3D模型<br>
+  <input type="checkbox" [(ngModel)]="isReport" checked>需要报告<br>
+</div>
+<button (click)="newTask()">提交订单</button>

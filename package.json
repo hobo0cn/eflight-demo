@@ -92,7 +92,10 @@
     "rxjs": "5.0.2",
     "ts-loader": "^2.0.2",
     "typescript": "^2.2.1",
-    "zone.js": "0.7.6"
+    "zone.js": "0.7.6",
+    "leaflet-gcj02": "https://github.com/hobo0cn/leaflet-gcj02.git",
+    "Leaflet.MeasureAreaControl": "https://github.com/zvaraondrej/Leaflet.MeasureAreaControl.git",
+    "leaflet-draw": "^0.4.8"
   },
   "devDependencies": {
     "@angular/compiler-cli": "2.4.6",
