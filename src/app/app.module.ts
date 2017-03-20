@@ -28,11 +28,14 @@ import { AppState, InternalStateType } from './app.service';
 // import { AboutComponent } from './about';
 import { NoContentComponent } from './no-content';
 // import { XLargeDirective } from './home/x-large';
-import {LoginComponent} from './login'
-import {DashboardComponent} from './dashboard'
-import {AreaSelectComponent} from './area-select'
-import {TaskService} from './task.service'
+import {LoginComponent} from './login';
+import {DashboardComponent} from './dashboard';
+import {AreaSelectComponent} from './area-select';
+import {ServiceSelectComponent} from './service-select';
+import {ServiceRequestComponent} from './service-request';
 
+import { TaskService } from './task.service';
+import { MapService } from './map.service';
 import '../styles/styles.scss';
 import '../styles/headings.css';
 
@@ -61,7 +64,9 @@ type StoreType = {
     // XLargeDirective
     LoginComponent,
     DashboardComponent,
-    AreaSelectComponent
+    AreaSelectComponent,
+    ServiceSelectComponent,
+    ServiceRequestComponent
   ],
   imports: [ // import Angular's modules
     BrowserModule,
@@ -72,7 +77,8 @@ type StoreType = {
   providers: [ // expose our Services and Providers into Angular's dependency injection
     ENV_PROVIDERS,
     APP_PROVIDERS,
-    TaskService
+    TaskService,
+    MapService
   ]
 
 })

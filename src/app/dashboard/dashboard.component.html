@@ -6,6 +6,7 @@
     <span class="badge">{{task.id}}</span>
     <span>{{task.name}}</span>
     <span>{{getStatusString(task.status)}}</span>
+    <span>品种: {{task.crop}}</span>
     <button class="open"
       (click)="open(task.id); $event.stopPropagation()">打开</button>
   </li>

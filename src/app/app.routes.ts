@@ -5,6 +5,8 @@ import { NoContentComponent } from './no-content';
 import {LoginComponent} from './login'
 import {DashboardComponent} from './dashboard'
 import {AreaSelectComponent} from './area-select'
+import {ServiceSelectComponent} from './service-select'
+import {ServiceRequestComponent} from './service-request'
 import { DataResolver } from './app.resolver';
 
 export const ROUTES: Routes = [
@@ -12,6 +14,8 @@ export const ROUTES: Routes = [
   { path: 'login',  component: LoginComponent },
   { path: 'dashboard',  component: DashboardComponent },
   { path: 'area-select',  component: AreaSelectComponent },
+  { path: 'service-select',  component: ServiceSelectComponent },
+  { path: 'service-request',  component: ServiceRequestComponent },
   // { path: 'about', component: AboutComponent },
   { path: 'detail/:id', loadChildren: './+detail#DetailModule'},
   // { path: 'barrel', loadChildren: './+barrel#BarrelModule'},

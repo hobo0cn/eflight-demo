@@ -6,6 +6,7 @@ import { Location }    from '@angular/common';
 import {Router} from '@angular/router';
 import { Task } from '../task';
 import {TaskService} from '../task.service';
+import { MapService} from '../map.service';
 import {TaskStatusEnum} from '../task';
 
 @Component({
@@ -30,7 +31,9 @@ export class AreaSelectComponent implements OnInit {
   constructor(
     public taskService: TaskService,
     private location: Location,
-    public _router: Router
+    public _router: Router,
+    private mapService: MapService,
+
   ) {
     this.location = location;
   }
@@ -38,12 +41,31 @@ export class AreaSelectComponent implements OnInit {
   public ngOnInit() {
     console.log('hello `dashboard` component');
     // this.title.getData().subscribe(data => this.data = data);
+    let map = L.map("map", {
+        zoomControl: false,
+        center: L.latLng(40.731253, -73.996139),
+        zoom: 12,
+        minZoom: 4,
+        maxZoom: 19,
+        layers: [this.mapService.baseMaps.OpenStreetMap]
+    });
 
+    L.control.zoom({ position: "topright" }).addTo(map);
+    L.control.layers(this.mapService.baseMaps).addTo(map);
+    L.control.scale().addTo(map);
+    //
+    this.mapService.map = map;
+    // this.geocoder.getCurrentLocation()
+    //     .subscribe(
+    //         location => map.panTo([location.latitude, location.longitude]),
+    //         err => console.error(err)
+    //     );
+    // this.toolbarComponent.Initialize();
   }
 
   selectArea(): void{
     // TODO 跳转到任务类型选择
-    this._router.navigate(['/task']);
+    this._router.navigate(['/service-select']);
   }
 
 }

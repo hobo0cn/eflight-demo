@@ -6,7 +6,7 @@ import {
 import { Location }    from '@angular/common';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Task } from '../task';
-import {TaskService} from '../task.service';
+import { TaskService } from '../task.service';
 /*
  * We're loading this component asynchronously
  * We are using some magic with es6-promise-loader that will wrap the module with a Promise
