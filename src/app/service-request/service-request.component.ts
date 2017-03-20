@@ -31,7 +31,8 @@ export class ServiceRequestComponent implements OnInit {
   // TypeScript public modifiers
   constructor(
     private location: Location,
-    public _router: Router
+    public _router: Router,
+    public taskService: TaskService
   ) {
     this.location = location;
     this.new_task = new Task();
@@ -45,6 +46,10 @@ export class ServiceRequestComponent implements OnInit {
   newTask(): void {
     console.log('new task');
     // TODO 插入新的task节点
+    
+    this.new_task.name = "test";
+    this.taskService.create(this.new_task);
+    this._router.navigate(['/dashboard']);
   }
 
 }

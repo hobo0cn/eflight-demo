@@ -9,6 +9,7 @@ import {TaskService} from '../task.service';
 import { MapService} from '../map.service';
 import {TaskStatusEnum} from '../task';
 
+
 @Component({
   // The selector is what angular internally uses
   // for `document.querySelectorAll(selector)` in our index.html
@@ -41,20 +42,18 @@ export class AreaSelectComponent implements OnInit {
   public ngOnInit() {
     console.log('hello `dashboard` component');
     // this.title.getData().subscribe(data => this.data = data);
-    let map = L.map("map", {
-        zoomControl: false,
-        center: L.latLng(40.731253, -73.996139),
-        zoom: 12,
-        minZoom: 4,
-        maxZoom: 19,
-        layers: [this.mapService.baseMaps.OpenStreetMap]
-    });
-
-    L.control.zoom({ position: "topright" }).addTo(map);
-    L.control.layers(this.mapService.baseMaps).addTo(map);
-    L.control.scale().addTo(map);
+    // let map = L.map("mapid", {
+    //     zoomControl: false,
+    //     center: L.latLng(39.58, 116.38),
+    //     zoom: 4,
+    //     layers: [this.mapService.baseMaps.AeroMap]
+    // });
     //
-    this.mapService.map = map;
+    // L.control.zoom({ position: "bottomright" }).addTo(map);
+    // L.control.layers(this.mapService.baseMaps).addTo(map);
+    // L.control.scale().addTo(map);
+    // this.mapService.map = map;
+    
     // this.geocoder.getCurrentLocation()
     //     .subscribe(
     //         location => map.panTo([location.latitude, location.longitude]),

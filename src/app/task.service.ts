@@ -46,6 +46,7 @@ export class TaskService {
     //   .toPromise()
     //   .then(res => res.json().data)
     //   .catch(this.handleError);
+    task.id = TASKS.length + 1;
     TASKS.push(task);
     return Promise.resolve(task);
   }
