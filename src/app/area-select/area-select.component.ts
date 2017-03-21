@@ -45,8 +45,8 @@ export class AreaSelectComponent implements OnInit {
     // this.title.getData().subscribe(data => this.data = data);
     let map = L.map("mapid", {
         zoomControl: false,
-        center: L.latLng(39.58, 116.38),
-        zoom: 4,
+        center: L.latLng(23.4394111680718, 107.551593359032),
+        zoom: 14,
         layers: [this.mapService.baseMaps.AeroMap]
     });
 
@@ -56,7 +56,7 @@ export class AreaSelectComponent implements OnInit {
     this.mapService.map = map;
 
     this.mapService.loadResultLayer();
-    this.mapService.loadGeoJson();
+    // this.mapService.loadGeoJson();
     // this.geocoder.getCurrentLocation()
     //     .subscribe(
     //         location => map.panTo([location.latitude, location.longitude]),
