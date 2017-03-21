@@ -1,6 +1,7 @@
 import {
   Component,
-  OnInit
+  OnInit,
+  ViewChild
 } from '@angular/core';
 import { Location }    from '@angular/common';
 import {
@@ -9,7 +10,8 @@ import {
  } from '@angular/router';
 import { Task } from '../task';
 import { TaskService } from '../task.service';
-import { TaskStatusEnum} from '../task';
+import { TaskStatusEnum } from '../task';
+import { AreaDrawComponent } from '../area-draw';
 @Component({
   // The selector is what angular internally uses
   // for `document.querySelectorAll(selector)` in our index.html
@@ -34,6 +36,7 @@ export class ServiceRequestComponent implements OnInit {
   public   isUrgent: Boolean; // 是否加急
   public   is3DModel: Boolean; // 是否3D建模
   public   isReport: Boolean; // 是否需要报告
+  @ViewChild(AreaDrawComponent)  areaDrawComponent: AreaDrawComponent;
   // TypeScript public modifiers
   constructor(
     private location: Location,

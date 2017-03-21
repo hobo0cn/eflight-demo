@@ -1,5 +1,12 @@
+/// <reference path="./app/typings/require.d.ts"/>
+/// <reference path="./app/typings/leaflet-gcj02.d.ts"/>
+
 import '@types/leaflet';
 import 'leaflet-gcj02';
+import 'Leaflet.MeasureAreaControl';
+import 'leaflet-draw';
+
+
 /*
  * Custom Type Definitions
  * When including 3rd party modules you also need to include the type definition for the module
