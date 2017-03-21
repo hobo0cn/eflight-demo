@@ -3,9 +3,10 @@
 
 import '@types/leaflet';
 import 'leaflet-gcj02';
+import 'leaflet-gcj02/lib'
 import 'Leaflet.MeasureAreaControl';
 import 'leaflet-draw';
-
+// import 'leaflet-gcj02/lib/transform.js'
 
 /*
  * Custom Type Definitions

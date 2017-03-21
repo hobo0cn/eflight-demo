@@ -1,11 +1,15 @@
-import "../custom-typings.d"
+import "../custom-typings.d";
 import 'leaflet';
+import "./typings/leaflet-gcj02.d";
+import 'leaflet-gcj02';
+// import 'leaflet-gcj02/lib/transform.js'
+
 
 import { Injectable } from "@angular/core";
 import { Http, Headers, RequestOptions } from "@angular/http";
 // import { Location } from "../core/location.class";
 import { Map } from "leaflet";
-import "./typings/leaflet-gcj02.d";
+// import * as _ from  'leaflet-gcj02/lib/transform.js';
 
 @Injectable()
 export class MapService {
