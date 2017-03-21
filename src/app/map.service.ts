@@ -40,6 +40,15 @@ export class MapService {
       }).addTo(this.map);
     }
 
+    loadGeoJson(): void {
+       this.http.get("../assets/geojson/guang_xi_geo.json")
+              .map((res:any) => {
+                L.geoJSON(res.json()).addTo(this.map);
+              })
+              .catch((error:any) => console.log(error));
+
+    }
+
     disableMouseEvent(elementId: string) {
         let element = <HTMLElement>document.getElementById(elementId);
 

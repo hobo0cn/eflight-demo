@@ -55,7 +55,7 @@ export class AreaSelectComponent implements OnInit {
     this.mapService.map = map;
 
     this.mapService.loadResultLayer();
-    
+    this.mapService.loadGeoJson();
     // this.geocoder.getCurrentLocation()
     //     .subscribe(
     //         location => map.panTo([location.latitude, location.longitude]),
