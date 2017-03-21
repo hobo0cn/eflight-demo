@@ -5,6 +5,7 @@ import { Injectable } from "@angular/core";
 import { Http, Headers, RequestOptions } from "@angular/http";
 // import { Location } from "../core/location.class";
 import { Map } from "leaflet";
+import "./typings/leaflet-gcj02.d";
 
 @Injectable()
 export class MapService {
@@ -26,6 +27,17 @@ export class MapService {
         };
 
 
+    }
+
+    // 添加结果图层
+    loadResultLayer(): void {
+      let wmsLayer = L.tileLayer.wms('http://112.74.189.43:8080/geoserver/wsgeotiff/wms?', {
+        layers: 'wsgeotiff:48',
+        format: 'image/png',
+        transparent: true,
+        crs: L.CRS.GCJ02,
+        maxZoom: 30
+      }).addTo(this.map);
     }
 
     disableMouseEvent(elementId: string) {

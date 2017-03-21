@@ -42,18 +42,20 @@ export class AreaSelectComponent implements OnInit {
   public ngOnInit() {
     console.log('hello `dashboard` component');
     // this.title.getData().subscribe(data => this.data = data);
-    // let map = L.map("mapid", {
-    //     zoomControl: false,
-    //     center: L.latLng(39.58, 116.38),
-    //     zoom: 4,
-    //     layers: [this.mapService.baseMaps.AeroMap]
-    // });
-    //
-    // L.control.zoom({ position: "bottomright" }).addTo(map);
-    // L.control.layers(this.mapService.baseMaps).addTo(map);
-    // L.control.scale().addTo(map);
-    // this.mapService.map = map;
+    let map = L.map("mapid", {
+        zoomControl: false,
+        center: L.latLng(39.58, 116.38),
+        zoom: 4,
+        layers: [this.mapService.baseMaps.AeroMap]
+    });
 
+    L.control.zoom({ position: "bottomright" }).addTo(map);
+    L.control.layers(this.mapService.baseMaps).addTo(map);
+    L.control.scale().addTo(map);
+    this.mapService.map = map;
+
+    this.mapService.loadResultLayer();
+    
     // this.geocoder.getCurrentLocation()
     //     .subscribe(
     //         location => map.panTo([location.latitude, location.longitude]),
