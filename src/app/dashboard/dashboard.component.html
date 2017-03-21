@@ -9,6 +9,26 @@
     <span>品种: {{task.crop}}</span>
     <button class="open"
       (click)="open(task.id); $event.stopPropagation()">打开</button>
+    <p>
+      开始时间：{{task.publishTime | date: 'yyyy.MM.dd'}}  结束时间：{{task.finishTime | date: 'yyyy.MM.dd'}}
+    </p>
+    <p>
+      进度：{{getTaskProcessRate(task.status)}}%
+    </p>
+
+    <p>
+      总面积：{{task.acreage}} 亩
+    </p>
+
+    <p>
+      价格：{{task.cost/10000}}万元
+    </p>
+
+    <p *ngIf="task.status!=2">
+      <button class="cancel"
+        (click)="cancel(task); $event.stopPropagation()">取消订单</button>
+    </p>
+
   </li>
 </ul>
 

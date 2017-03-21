@@ -7,6 +7,7 @@ import { Location }    from '@angular/common';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Task } from '../task';
 import { TaskService } from '../task.service';
+// import { AreaDrawComponent } from '../area-draw';
 /*
  * We're loading this component asynchronously
  * We are using some magic with es6-promise-loader that will wrap the module with a Promise
@@ -23,9 +24,26 @@ console.log('`Detail` component loaded asynchronously');
 
       <p>{{task.id}}</p>
       <div>
-        <p>调查品种：{{task.crop}} </p>
-        <p>计划完成时间：{{task.finishTime}} </p>
-        <p>总面积：{{task.acreage}} 亩</p>
+        <span>{{task.name}}</span>
+
+        <span>品种: {{task.crop}}</span>
+        <p>
+          开始时间：{{task.publishTime | date: 'yyyy.MM.dd'}}  结束时间：{{task.finishTime | date: 'yyyy.MM.dd'}}
+        </p>
+        <p>
+          服务需求备注: {{task.notes}}
+        </p>
+        <p>
+          是否加急：{{task.isUrgent}}  是否3D建模: {{task.is3DModel}} 是否需要报告: {{task.isReport}}
+        </p>
+        <p>
+          总面积：{{task.acreage}} 亩
+        </p>
+
+
+        <p>
+          价格：{{task.cost/10000}}万元
+        </p>
       </div>
 
       <span>
@@ -33,6 +51,7 @@ console.log('`Detail` component loaded asynchronously');
           服务结果
         </a>
       </span>
+
     </div>
 
   `,

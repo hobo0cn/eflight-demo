@@ -69,9 +69,31 @@ export class DashboardComponent implements OnInit {
 
   }
 
+  getTaskProcessRate(status: TaskStatusEnum): number {
+    switch (status) {
+        case TaskStatusEnum.created:
+          return 0;
+        case TaskStatusEnum.accepted:
+            return 10;
+        case TaskStatusEnum.canceled:
+                return 0;
+        case TaskStatusEnum.processing:
+            return 30;
+        case TaskStatusEnum.finished:
+            return 100;
+
+    }
+    return 0;
+  }
+
   open(id: number): void {
     // 打开任务详情
     this._router.navigate(['/detail/' + id]);
+  }
+
+  cancel(task: Task): void {
+    task.status = TaskStatusEnum.canceled;
+    this.taskService.update(task);
   }
 
   newServiceRequest(): void {

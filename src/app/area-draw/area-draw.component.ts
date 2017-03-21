@@ -26,10 +26,12 @@ import 'leaflet-draw';
   // Every Angular template is first compiled by the browser before Angular runs it's compiler
   templateUrl: './area-draw.component.html'
 })
+
 export class AreaDrawComponent implements OnInit {
   // Set our default values
   // public TaskList = { username: '' };
   public tasks: Task[] = [];
+  public polygon: L.Draw.Polygon;
   // TypeScript public modifiers
   constructor(
     public taskService: TaskService,
@@ -75,6 +77,19 @@ export class AreaDrawComponent implements OnInit {
               }
           });
       map.addControl(drawControl);
+
+      map.on('draw:created', function (e) {
+               let type = e.layerType,
+                   layer = e.layer;
+               let anno_cat = "";
+               let anno_geojson = "";
+
+               if (type === 'polygon') {
+                  this.polygon.disable();
+                  anno_cat = "Polygon";
+               };
+  });
+
   }
 
   selectArea(): void{

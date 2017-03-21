@@ -7,7 +7,7 @@ import {DashboardComponent} from './dashboard'
 import {AreaSelectComponent} from './area-select'
 import {ServiceSelectComponent} from './service-select'
 import {ServiceRequestComponent} from './service-request'
-import { AreaDrawComponent } from './area-draw';
+// import { AreaDrawComponent } from './area-draw';
 import { DataResolver } from './app.resolver';
 
 export const ROUTES: Routes = [
@@ -17,7 +17,7 @@ export const ROUTES: Routes = [
   { path: 'area-select',  component: AreaSelectComponent },
   { path: 'service-select',  component: ServiceSelectComponent },
   { path: 'service-request',  component: ServiceRequestComponent },
-  { path: 'area-draw',  component: AreaDrawComponent },
+  // { path: 'area-draw',  component: AreaDrawComponent },
   // { path: 'about', component: AboutComponent },
   { path: 'detail/:id', loadChildren: './+detail#DetailModule'},
   // { path: 'barrel', loadChildren: './+barrel#BarrelModule'},

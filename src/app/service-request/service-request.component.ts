@@ -11,7 +11,8 @@ import {
 import { Task } from '../task';
 import { TaskService } from '../task.service';
 import { TaskStatusEnum } from '../task';
-import { AreaDrawComponent } from '../area-draw';
+import { AreaDrawComponent } from '../area-draw/area-draw.component';
+
 @Component({
   // The selector is what angular internally uses
   // for `document.querySelectorAll(selector)` in our index.html
