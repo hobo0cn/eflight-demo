@@ -9,6 +9,7 @@ import {TaskService} from '../task.service';
 import { MapService} from '../map.service';
 import {TaskStatusEnum} from '../task';
 
+import 'leaflet/dist/leaflet.css';
 
 @Component({
   // The selector is what angular internally uses
@@ -20,7 +21,7 @@ import {TaskStatusEnum} from '../task';
     // Title
   ],
   // Our list of styles in our component. We may add more to compose many styles together
-  styleUrls: [ './area-select.component.css' ],
+  styleUrls: ['./area-select.component.css' ],
   // Every Angular template is first compiled by the browser before Angular runs it's compiler
   templateUrl: './area-select.component.html'
 })

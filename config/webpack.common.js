@@ -154,7 +154,14 @@ module.exports = function (options) {
         {
           test: /\.css$/,
           use: ['to-string-loader', 'css-loader'],
-          exclude: [helpers.root('src', 'styles')]
+          exclude: [helpers.root('src', 'styles'),/node_modules/]
+        },
+
+        { //this rule will only be used for any vendors
+          test: /\.css$/,
+          loaders: ['style-loader', 'css-loader'],
+          exclude: [helpers.root('src', 'styles')],
+          include: [/node_modules/]
         },
 
         /*
