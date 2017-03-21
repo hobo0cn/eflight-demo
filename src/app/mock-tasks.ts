@@ -19,7 +19,8 @@ export const TASKS: Task[] = [
     notes: '备注信息', // 备注
     areaGeojson: '', // 选择范围的geojson字符串
     wmsURL: '',  // WMS URL
-    images: [] // 上传图片URL
+    images: [], // 上传图片URL
+    thumbnail_URL: ''
   },
   {
     id: 2,
@@ -38,7 +39,8 @@ export const TASKS: Task[] = [
     notes: '备注信息', // 备注
     areaGeojson: '', // 选择范围的geojson字符串
     wmsURL: '',  // WMS URL
-    images: [] // 上传图片URL
+    images: [], // 上传图片URL
+    thumbnail_URL: ''
   },
   {
     id: 3,
@@ -57,7 +59,8 @@ export const TASKS: Task[] = [
     notes: '备注信息', // 备注
     areaGeojson: '', // 选择范围的geojson字符串
     wmsURL: '',  // WMS URL
-    images: [] // 上传图片URL
+    images: [], // 上传图片URL
+    thumbnail_URL: ''
   },
   // TODO ...
 ];

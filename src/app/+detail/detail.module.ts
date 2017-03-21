@@ -6,6 +6,8 @@ import { RouterModule } from '@angular/router';
 import { routes } from './detail.routes';
 import { DetailComponent } from './detail.component';
 import {TaskService} from '../task.service';
+import { AreaDrawModule } from '../area-draw';
+
 console.log('`Detail` bundle loaded asynchronously');
 
 @NgModule({
@@ -17,9 +19,11 @@ console.log('`Detail` bundle loaded asynchronously');
     CommonModule,
     FormsModule,
     RouterModule.forChild(routes),
+    AreaDrawModule
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
-    TaskService
+    TaskService,
+
   ]
 })
 export class DetailModule {

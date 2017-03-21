@@ -1,1 +1,1 @@
-export { AreaDrawComponent } from './area-draw.component';
+export { AreaDrawModule } from './area-draw.module';

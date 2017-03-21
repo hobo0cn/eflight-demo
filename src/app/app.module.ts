@@ -33,7 +33,7 @@ import {DashboardComponent} from './dashboard';
 import {AreaSelectComponent} from './area-select';
 import {ServiceSelectComponent} from './service-select';
 import {ServiceRequestComponent} from './service-request';
-import { AreaDrawComponent } from './area-draw';
+import { AreaDrawModule } from './area-draw/area-draw.module';
 
 import { TaskService } from './task.service';
 import { MapService } from './map.service';
@@ -67,13 +67,14 @@ type StoreType = {
     DashboardComponent,
     AreaSelectComponent,
     ServiceSelectComponent,
-    ServiceRequestComponent,
-    AreaDrawComponent
+    ServiceRequestComponent
+
   ],
   imports: [ // import Angular's modules
     BrowserModule,
     FormsModule,
     HttpModule,
+    AreaDrawModule,
     RouterModule.forRoot(ROUTES, { useHash: true, preloadingStrategy: PreloadAllModules })
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
