@@ -51,7 +51,7 @@ console.log('`Detail` component loaded asynchronously');
           服务结果
         </a>
       </span>
-
+      <area-draw></area-draw>
     </div>
 
   `,
