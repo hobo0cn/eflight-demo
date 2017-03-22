@@ -2,6 +2,8 @@ import "../custom-typings.d";
 import 'leaflet';
 import "./typings/leaflet-gcj02.d";
 import 'leaflet-gcj02';
+import './typings/Leaflet.MeasureAreaControl.d'
+// import 'Leaflet.MeasureAreaControl'
 import 'leaflet-draw';
 import 'rxjs/add/operator/map'
 
@@ -20,6 +22,8 @@ export class MapService {
     private marker: any;
     private polyline: any;
     private polygon: any;
+    public polygonArea: number = 0; // 测量的面积
+    public  drawGeojson: string = '';
     constructor(private http: Http) {
         // this.featureClickFunction = featureClickFunction;
         this.baseMaps = {
@@ -131,7 +135,45 @@ export class MapService {
                  if (type === 'polygon') {
                     // this.polygon.disable();
                     anno_cat = "Polygon";
-                 };
+              };
+
+              anno_geojson = JSON.stringify(layer.toGeoJSON());
+              //TODO 将geojson存储在task中
+              this.drawGeojson = anno_geojson;
+              console.log(this.drawGeojson);
         });
     }
+
+    // _showFeaturePanel(targetFeature: any): number{
+    //         let panelType = 0;
+    //         if (targetFeature instanceof L.Polygon) {
+    //             panelType = 3;
+    //            //获取面积数值
+    //            let latlngs = targetFeature._defaultShape ? targetFeature._defaultShape() : targetFeature.getLatLngs(),
+    //                 area = L.GeometryUtil.geodesicArea(latlngs);
+    //             this.polygonArea =  L.GeometryUtil.readableArea(area, true);
+    //         }
+    //         else if (targetFeature instanceof L.Polyline) {
+    //             panelType = 2;
+    //             //获取线长度
+    //             var latlngs = targetFeature._defaultShape ? targetFeature._defaultShape() : targetFeature.getLatLngs(),
+    //                 distance = 0;
+    //             if (latlngs.length < 2) {
+    //                 scope.polylineLen = "N/A";
+    //             } else {
+    //                 for (var i = 0; i < latlngs.length-1; i++) {
+    //                     distance += latlngs[i].distanceTo(latlngs[i+1]);
+    //                 }
+    //                 scope.polylineLen = _round(distance, 2)+" 米";
+    //             }
+    //         }
+    //         else if (targetFeature instanceof L.Marker) {
+    //             panelType = 1;
+    //            //获取位置点经纬度
+    //            scope.markerPos = strLatLng(targetFeature.getLatLng());
+    //
+    //         }
+    //         // console.log(panelType);
+    //         return panelType;
+    //   }
 }

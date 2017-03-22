@@ -74,8 +74,8 @@ export class AreaDrawComponent implements OnInit {
       if(this.controlType === 2) // 2-服务后画出的区域
         this.mapService.loadGeoJsonLayer(this.task.drawGeojson);
     }
-    //test
-    this.taskService.drawGeojson = 'test add by area-draw-component';
+    // //test
+    // this.mapService.drawGeojson = 'test add by area-draw-component';
   }
 
   public saveDrawGeojson(geojsonStr: string): void {

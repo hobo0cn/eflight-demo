@@ -12,7 +12,7 @@ import { Task } from '../task';
 import { TaskService } from '../task.service';
 import { TaskStatusEnum } from '../task';
 import { AreaDrawComponent } from '../area-draw/area-draw.component';
-
+import { MapService} from '../map.service';
 
 @Component({
   // The selector is what angular internally uses
@@ -44,7 +44,8 @@ export class ServiceRequestComponent implements OnInit {
   constructor(
     private location: Location,
     public _router: Router,
-    public taskService: TaskService
+    public taskService: TaskService,
+    private mapService: MapService
   ) {
     this.location = location;
     this.new_task = new Task();
@@ -62,12 +63,15 @@ export class ServiceRequestComponent implements OnInit {
   newTask(): void {
     console.log('new task');
     // 插入新的task节点
-    console.log(this.taskService.drawGeojson);
+    // console.log(this.taskService.drawGeojson);
 
     this.new_task.name = "无人机验标";
     this.new_task.status = TaskStatusEnum.created;
     this.new_task.crop = this.crop;
     this.new_task.notes = this.projectDesc;
+    this.new_task.areaGeojson = this.mapService.drawGeojson;
+    this.new_task.acreage = 60.3;
+    this.new_task.cost = this.new_task.acreage*3000;
     this.taskService.create(this.new_task);
 
     this._router.navigate(['/dashboard']);

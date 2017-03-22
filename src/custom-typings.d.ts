@@ -1,10 +1,12 @@
 /// <reference path="./app/typings/require.d.ts"/>
 /// <reference path="./app/typings/leaflet-gcj02.d.ts"/>
+/// <reference path="./app/typings/Leaflet.MeasureAreaControl.d.ts"/>
 
 import '@types/leaflet';
 import 'leaflet-gcj02';
 import 'leaflet-gcj02/lib'
 import 'Leaflet.MeasureAreaControl';
+import 'Leaflet.MeasureAreaControl/lib';
 import 'leaflet-draw';
 // import 'leaflet-gcj02/lib/transform.js'
 
