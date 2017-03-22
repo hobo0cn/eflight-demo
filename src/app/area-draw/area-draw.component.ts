@@ -35,7 +35,9 @@ export class AreaDrawComponent implements OnInit {
   public polygon: L.Draw.Polygon;
 
   @Input('init')
-  controlType: number = 0;// 0-申请服务画区域  1-服务后画区域
+  controlType: number = 0;// 0-申请服务画区域  1-服务后看之前画的预定区域 2-服务后画区域
+  @Input('task')
+  task: Task;
   // TypeScript public modifiers
   constructor(
     public taskService: TaskService,
@@ -63,6 +65,16 @@ export class AreaDrawComponent implements OnInit {
 
     //添加地图绘图控件
     this.mapService.loadDrawCtrl();
+    //如果任务初始化，则加载结果图层
+    if(this.task){
+      this.mapService.loadResultLayer(this.task.wmsURL);
+      // TODO 加载标绘的范围geojson layer
+      if(this.controlType === 1) // 1-服务后看之前画的预定区域
+        this.mapService.loadGeoJsonLayer(this.task.areaGeojson);
+      if(this.controlType === 2) // 2-服务后画出的区域
+        this.mapService.loadGeoJsonLayer(this.task.drawGeojson);
+    }
+    //test
     this.taskService.drawGeojson = 'test add by area-draw-component';
   }
 

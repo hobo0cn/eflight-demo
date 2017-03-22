@@ -20,8 +20,9 @@ export const TASKS: Task[] = [
     selAreaId: 1, // 选择的区域id
     crop: '水稻', // 作物种类
     notes: '备注信息', // 备注
-    areaGeojson: '', // 选择范围的geojson字符串
-    wmsURL: '',  // WMS URL
+    areaGeojson: '{"type":"Feature","properties":{},"geometry":{"type":"Polygon","coordinates":[[[107.5540816783905,23.437606137304957],[107.55412459373474,23.437261609451248],[107.55378127098083,23.437291140445335],[107.55329847335815,23.436887549621794],[107.55339503288269,23.436050833012878],[107.5537383556366,23.435627550828475],[107.55539059638977,23.435794895109904],[107.55578756332397,23.436040989256544],[107.55520820617676,23.437182860101444],[107.55499362945557,23.437871915321306],[107.55468249320984,23.43808847479131],[107.55411386489867,23.437684886402558],[107.5540816783905,23.437606137304957]]]}}', // 选择范围的geojson字符串
+    drawGeojson: '',
+    wmsURL: 'wsgeotiff:48',  // WMS URL
     images: [], // 上传图片URL
     thumbnail_URL: ''
   },
@@ -41,7 +42,7 @@ export const TASKS: Task[] = [
     crop: '水稻', // 作物种类
     notes: '备注信息', // 备注
     areaGeojson: '', // 选择范围的geojson字符串
-    wmsURL: '',  // WMS URL
+    wmsURL: 'wsgeotiff:48',  // WMS URL
     images: [], // 上传图片URL
     thumbnail_URL: ''
   },
@@ -61,7 +62,7 @@ export const TASKS: Task[] = [
     crop: '水稻', // 作物种类
     notes: '备注信息', // 备注
     areaGeojson: '', // 选择范围的geojson字符串
-    wmsURL: '',  // WMS URL
+    wmsURL: 'wsgeotiff:48',  // WMS URL
     images: [], // 上传图片URL
     thumbnail_URL: ''
   },

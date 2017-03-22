@@ -38,9 +38,9 @@ export class MapService {
     }
 
     // 添加结果图层
-    loadResultLayer(): void {
+    loadResultLayer(layerName: string): void {
       let wmsLayer = L.tileLayer.wms('http://112.74.189.43:8080/geoserver/wsgeotiff/wms?', {
-        layers: 'wsgeotiff:48',
+        layers: layerName, //'wsgeotiff:48',
         format: 'image/png',
         transparent: true,
         crs: L.CRS.GCJ02,
@@ -48,6 +48,10 @@ export class MapService {
       }).addTo(this.map);
     }
 
+    loadGeoJsonLayer(geojsonStr: string): void {
+        let geoJsonLayer =  L.geoJSON(JSON.parse(geojsonStr));
+        geoJsonLayer.addTo(this.map);
+    }
     // loadGeoJson(): void {
     //    this.http.get("../assets/geojson/guang_xi_geo.json")
     //           .map((res:any) => {
@@ -117,15 +121,15 @@ export class MapService {
                  let anno_cat = "";
                  let anno_geojson = "";
               if (type === 'marker') {
-                 this.marker.disable();
+                //  this.marker.disable();
                  anno_cat = "Marker";
                }
                if (type === 'polyline') {
-                 this.polyline.disable();
+                //  this.polyline.disable();
                  anno_cat = "Polyline";
                }
                  if (type === 'polygon') {
-                    this.polygon.disable();
+                    // this.polygon.disable();
                     anno_cat = "Polygon";
                  };
         });

@@ -56,7 +56,7 @@ export class AreaSelectComponent implements OnInit {
     L.control.scale().addTo(map);
     this.mapService.map = map;
 
-    this.mapService.loadResultLayer();
+    // this.mapService.loadResultLayer();
     this.mapService.toggleSelectLayer(this.selectArea.bind(this));
 
     // this.geocoder.getCurrentLocation()
