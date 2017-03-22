@@ -24,6 +24,7 @@ export class Task {
   public   crop: string; // 作物种类
   public   notes: string; // 备注
   public   areaGeojson: string; // 选择范围的geojson字符串
+  public   drawGeojson: string; // 绘制的geojson字符串
   public   wmsURL: string;    // WMS URL
   public   images: string[];  // 上传图片URL
   public   thumbnail_URL: string; // 缩略图URL

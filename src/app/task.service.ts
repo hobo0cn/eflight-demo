@@ -1,14 +1,16 @@
 import { Injectable }    from '@angular/core';
 import { Task } from './task';
 import {TASKS} from './mock-tasks'
+import { Http, Headers, RequestOptions } from "@angular/http";
 
 @Injectable()
 export class TaskService {
-
+  
+  public  drawGeojson: string = 'test';
   // private headers = new Headers({'Content-Type': 'application/json'});
   // private heroesUrl = 'api/heroes';  // URL to web api
   //
-  // constructor(private http: Http) { }
+  constructor(private http: Http) { }
 
   getTasks(): Promise<Task[]> {
     // return this.http.get(this.heroesUrl)

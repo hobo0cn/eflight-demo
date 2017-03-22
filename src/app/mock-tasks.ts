@@ -1,5 +1,8 @@
-import {Task} from './task'
-import {TaskStatusEnum} from './task'
+import {Task} from './task';
+import {TaskStatusEnum} from './task';
+import * as _ from '@angular/core';
+
+// export const drawGeojson: _.string = 'test json!!!';
 
 export const TASKS: Task[] = [
   {

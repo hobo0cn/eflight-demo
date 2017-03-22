@@ -33,6 +33,7 @@ import {DashboardComponent} from './dashboard';
 import {AreaSelectComponent} from './area-select';
 import {ServiceSelectComponent} from './service-select';
 import {ServiceRequestComponent} from './service-request';
+import {ServiceRequestDrawComponent} from './service-request-draw'
 import { AreaDrawModule } from './area-draw/area-draw.module';
 
 import { TaskService } from './task.service';
@@ -67,7 +68,8 @@ type StoreType = {
     DashboardComponent,
     AreaSelectComponent,
     ServiceSelectComponent,
-    ServiceRequestComponent
+    ServiceRequestComponent,
+    ServiceRequestDrawComponent
 
   ],
   imports: [ // import Angular's modules

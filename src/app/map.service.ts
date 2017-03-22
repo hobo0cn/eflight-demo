@@ -2,7 +2,7 @@ import "../custom-typings.d";
 import 'leaflet';
 import "./typings/leaflet-gcj02.d";
 import 'leaflet-gcj02';
-// import 'leaflet-gcj02/lib/transform.js'
+import 'leaflet-draw';
 import 'rxjs/add/operator/map'
 
 import { Injectable } from "@angular/core";
@@ -17,7 +17,9 @@ export class MapService {
     public baseMaps: any;
     private vtLayer: any;
     public featureClickFunction: any;
-
+    private marker: any;
+    private polyline: any;
+    private polygon: any;
     constructor(private http: Http) {
         // this.featureClickFunction = featureClickFunction;
         this.baseMaps = {
@@ -87,5 +89,45 @@ export class MapService {
                   this.vtLayer.addTo(this.map);
               });
       }
+    }
+
+    loadDrawCtrl(): any {
+      let drawnItems = new L.FeatureGroup();
+      this.map.addLayer(drawnItems);
+
+      let drawControl = new L.Control.Draw({
+                draw: {
+                  polyline: true,
+                  marker: true,
+                  rectangle: true,
+                  circle: true,
+                  polygon: true
+                },
+                edit: {
+                    featureGroup: drawnItems,
+                    remove: true
+                }
+            });
+        this.map.addControl(drawControl);
+
+        this.map.on('draw:created',  (e: Event) => {
+                 console.log(e);
+                 let type = e.layerType,
+                     layer = e.layer;
+                 let anno_cat = "";
+                 let anno_geojson = "";
+              if (type === 'marker') {
+                 this.marker.disable();
+                 anno_cat = "Marker";
+               }
+               if (type === 'polyline') {
+                 this.polyline.disable();
+                 anno_cat = "Polyline";
+               }
+                 if (type === 'polygon') {
+                    this.polygon.disable();
+                    anno_cat = "Polygon";
+                 };
+        });
     }
 }

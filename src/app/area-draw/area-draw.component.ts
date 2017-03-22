@@ -1,6 +1,7 @@
 import {
   Component,
-  OnInit
+  OnInit,
+  Input
 } from '@angular/core';
 import { Location }    from '@angular/common';
 import {Router} from '@angular/router';
@@ -32,13 +33,15 @@ export class AreaDrawComponent implements OnInit {
   // public TaskList = { username: '' };
   public tasks: Task[] = [];
   public polygon: L.Draw.Polygon;
+
+  @Input('init')
+  controlType: number = 0;// 0-申请服务画区域  1-服务后画区域
   // TypeScript public modifiers
   constructor(
     public taskService: TaskService,
     private location: Location,
     public _router: Router,
-    private mapService: MapService,
-
+    private mapService: MapService
   ) {
     this.location = location;
   }
@@ -59,44 +62,15 @@ export class AreaDrawComponent implements OnInit {
     this.mapService.map = map;
 
     //添加地图绘图控件
+    this.mapService.loadDrawCtrl();
+    this.taskService.drawGeojson = 'test add by area-draw-component';
+  }
 
-    let drawnItems = new L.FeatureGroup();
-    map.addLayer(drawnItems);
-
-    let drawControl = new L.Control.Draw({
-              draw: {
-                polyline: true,
-                marker: true,
-                rectangle: true,
-                circle: true,
-                polygon: true
-              },
-              edit: {
-                  featureGroup: drawnItems,
-                  remove: true
-              }
-          });
-      map.addControl(drawControl);
-
-      map.on('draw:created', function (e) {
-               let type = e.layerType,
-                   layer = e.layer;
-               let anno_cat = "";
-               let anno_geojson = "";
-
-               if (type === 'polygon') {
-                  this.polygon.disable();
-                  anno_cat = "Polygon";
-               };
-  });
+  public saveDrawGeojson(geojsonStr: string): void {
+     //TODO 将绘制的geojson存储在task中,本函数作为 MapService的回调函数，在标绘后调用。
 
   }
 
-  public getDrawGeojson(): string {
-     let geojsonStr: string = ""
-     return geojsonStr;
-  }
-  
   selectArea(): void{
     // TODO 跳转到任务类型选择
     this._router.navigate(['/service-select']);
