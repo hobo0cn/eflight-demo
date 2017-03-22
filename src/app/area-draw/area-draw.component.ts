@@ -48,8 +48,8 @@ export class AreaDrawComponent implements OnInit {
     // this.title.getData().subscribe(data => this.data = data);
     let map = L.map("mapid", {
         zoomControl: false,
-        center: L.latLng(39.58, 116.38),
-        zoom: 4,
+        center: L.latLng(23.4394111680718, 107.551593359032),
+        zoom: 14,
         layers: [this.mapService.baseMaps.AeroMap]
     });
 
@@ -92,6 +92,11 @@ export class AreaDrawComponent implements OnInit {
 
   }
 
+  public getDrawGeojson(): string {
+     let geojsonStr: string = ""
+     return geojsonStr;
+  }
+  
   selectArea(): void{
     // TODO 跳转到任务类型选择
     this._router.navigate(['/service-select']);

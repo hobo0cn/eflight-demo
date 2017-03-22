@@ -37,6 +37,7 @@ export class AreaSelectComponent implements OnInit {
     private mapService: MapService,
 
   ) {
+    // this.mapService.featureClickFunction = this.selectArea.bind(this);
     this.location = location;
   }
 
@@ -46,7 +47,7 @@ export class AreaSelectComponent implements OnInit {
     let map = L.map("mapid", {
         zoomControl: false,
         center: L.latLng(23.4394111680718, 107.551593359032),
-        zoom: 14,
+        zoom: 5,
         layers: [this.mapService.baseMaps.AeroMap]
     });
 
@@ -56,7 +57,8 @@ export class AreaSelectComponent implements OnInit {
     this.mapService.map = map;
 
     this.mapService.loadResultLayer();
-    // this.mapService.loadGeoJson();
+    this.mapService.toggleSelectLayer(this.selectArea.bind(this));
+
     // this.geocoder.getCurrentLocation()
     //     .subscribe(
     //         location => map.panTo([location.latitude, location.longitude]),
@@ -65,7 +67,7 @@ export class AreaSelectComponent implements OnInit {
     // this.toolbarComponent.Initialize();
   }
 
-  selectArea(): void{
+  public selectArea(): void{
     // TODO 跳转到任务类型选择
     this._router.navigate(['/service-select']);
   }
