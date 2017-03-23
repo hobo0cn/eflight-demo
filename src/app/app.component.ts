@@ -8,6 +8,9 @@ import {
 } from '@angular/core';
 import { AppState } from './app.service';
 
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/css/bootstrap-theme.min.css';
+
 /*
  * App Component
  * Top Level Component
@@ -18,16 +21,9 @@ import { AppState } from './app.service';
   styleUrls: [
     './app.component.css'
   ],
-  template: `
-
-
-    <main>
+  template: `<main>
       <router-outlet></router-outlet>
     </main>
-
-
-
-
   `
 })
 export class AppComponent implements OnInit {

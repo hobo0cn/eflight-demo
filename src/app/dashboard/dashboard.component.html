@@ -1,38 +1,42 @@
-<h2>服务列表</h2>
-
+<header>
+  <h2>服务列表</h2>
+  <a class="pull-right btn-add" (click)="newServiceRequest()"><i class="glyphicon glyphicon-plus"></i></a>
+</header>
 <ul class="tasks">
-  <li *ngFor="let task of tasks"
-      >
-    <span class="badge">{{task.id}}</span>
-    <span>{{task.name}}</span>
-    <span>{{getStatusString(task.status)}}</span>
-    <span>品种: {{task.crop}}</span>
-    <button class="open"
-      (click)="open(task.id); $event.stopPropagation()">打开</button>
-    <p>
-      开始时间：{{task.publishTime | date: 'yyyy.MM.dd'}}  结束时间：{{task.finishTime | date: 'yyyy.MM.dd'}}
+  <li *ngFor="let task of tasks">
+    <div class="panel">
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-sm-2">
+            <img src="" class="img-rounded" />
+          </div>
+          <div class="col-sm-10">
+            <!--<span class="badge">{{task.id}}</span>-->
+            <p>
+              <a (click)="open(task.id); $event.stopPropagation()">{{task.name}}</a>
+              <span class="text-success pull-right">{{getStatusString(task.status)}}</span>
+            </p>
+            <p>品种: {{task.crop}}</p>
+            <!--<button class="open" (click)="open(task.id); $event.stopPropagation()">打开</button>-->
+            <p>
+              开始时间：{{task.publishTime | date: 'yyyy.MM.dd'}} 结束时间：{{task.finishTime | date: 'yyyy.MM.dd'}}
+            </p>
+            <div class="row">
+              <div class="col-xs-4"> 进度：{{getTaskProcessRate(task.status)}}%</div>
+              <div class="col-xs-4">总面积：{{task.acreage}} 亩</div>
+              <div class="col-xs-4"> 价格：{{task.cost/10000}}万元</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <p class="btn-wrap">
+      <button class="btn btn-default cancel" (click)="cancel(task); $event.stopPropagation()"  *ngIf="task.status!=2">取消订单</button>
     </p>
-    <p>
-      进度：{{getTaskProcessRate(task.status)}}%
-    </p>
-
-    <p>
-      总面积：{{task.acreage}} 亩
-    </p>
-
-    <p>
-      价格：{{task.cost/10000}}万元
-    </p>
-
-    <p *ngIf="task.status!=2">
-      <button class="cancel"
-        (click)="cancel(task); $event.stopPropagation()">取消订单</button>
-    </p>
-
   </li>
 </ul>
-
-<button (click)="newServiceRequest()">新服务需求</button>
+<!--<button (click)="newServiceRequest()">新服务需求</button>-->
 <!-- <div *ngIf="selectedHero">
   <h2>
     {{selectedHero.name | uppercase}} is my hero

@@ -1,0 +1,29 @@
+header{
+    text-align: center;
+}
+header .btn-add{
+    position: absolute;
+    top: 2.1rem;
+    right: 1.2rem;
+    font-size: 1.7rem;
+}
+.tasks{
+    list-style: nome;
+    margin:0;
+    padding:0;
+    background: #efeff5;
+}
+.tasks li{
+    background: #FFFFFF;
+    margin-bottom: 1.3rem;
+}
+.tasks li .panel{
+    box-shadow:none;
+}
+.tasks li hr{
+    margin-top: 0;
+}
+.tasks li .btn-wrap{
+    text-align: right;
+    padding: 0 1.2rem 1.2rem 0;
+}
