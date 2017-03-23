@@ -7,6 +7,7 @@ import { routes } from './detail.routes';
 import { DetailComponent } from './detail.component';
 import {TaskService} from '../task.service';
 import { AreaDrawModule } from '../area-draw';
+import { TabsModule } from 'ng2-bootstrap';
 
 console.log('`Detail` bundle loaded asynchronously');
 
@@ -19,7 +20,8 @@ console.log('`Detail` bundle loaded asynchronously');
     CommonModule,
     FormsModule,
     RouterModule.forChild(routes),
-    AreaDrawModule
+    AreaDrawModule,
+    TabsModule.forRoot()
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
     TaskService,

@@ -3,6 +3,10 @@ import {
   Component,
   OnInit,
 } from '@angular/core';
+import {
+  Router,
+  Params
+ } from '@angular/router';
 import { Location }    from '@angular/common';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Task } from '../task';
@@ -18,44 +22,8 @@ console.log('`Detail` component loaded asynchronously');
 
 @Component({
   selector: 'detail',
-  template: `
-    <h1>任务详情</h1>
-    <div *ngIf="task">
-
-      <p>{{task.id}}</p>
-      <div>
-        <span>{{task.name}}</span>
-
-        <span>品种: {{task.crop}}</span>
-        <p>
-          开始时间：{{task.publishTime | date: 'yyyy.MM.dd'}}  结束时间：{{task.finishTime | date: 'yyyy.MM.dd'}}
-        </p>
-        <p>
-          服务需求备注: {{task.notes}}
-        </p>
-        <p>
-          是否加急：{{task.isUrgent}}  是否3D建模: {{task.is3DModel}} 是否需要报告: {{task.isReport}}
-        </p>
-        <p>
-          总面积：{{task.acreage}} 亩
-        </p>
-
-
-        <p>
-          价格：{{task.cost/10000}}万元
-        </p>
-      </div>
-
-      <span>
-        <a [routerLink]=" ['./result-detail'] ">
-          服务结果
-        </a>
-      </span>
-  
-
-    </div>
-
-  `,
+  styleUrls: [ './detail.component.css' ],
+  templateUrl:'./detail.component.html'
 })
 export class DetailComponent implements OnInit {
   public task: Task;
@@ -63,8 +31,8 @@ export class DetailComponent implements OnInit {
   constructor(
     public taskService: TaskService,
     private location: Location,
-    private route: ActivatedRoute
-
+    private route: ActivatedRoute,
+    public _router: Router
   ) {
     this.location = location;
   }
@@ -82,4 +50,8 @@ export class DetailComponent implements OnInit {
     //   .subscribe(task => this.task = task);
   }
 
+  back(): void {
+    // 打开任务详情
+    this._router.navigate(['/']);
+  }
 }

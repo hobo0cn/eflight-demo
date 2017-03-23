@@ -1,0 +1,33 @@
+<header>
+    <a class="pull-left btn-back" (click)="back()"><i class="glyphicon glyphicon-chevron-left"></i></a>
+    <h2>无人机验标</h2>
+</header>
+<tabset>
+    <tab heading="任务详情">
+        <div *ngIf="task">
+            <p>{{task.id}}</p>
+            <div>
+                <span>{{task.name}}</span>
+                <span>品种: {{task.crop}}</span>
+                <p>
+                    开始时间：{{task.publishTime | date: 'yyyy.MM.dd'}} 结束时间：{{task.finishTime | date: 'yyyy.MM.dd'}}
+                </p>
+                <p>
+                    服务需求备注: {{task.notes}}
+                </p>
+                <p>
+                    是否加急：{{task.isUrgent}} 是否3D建模: {{task.is3DModel}} 是否需要报告: {{task.isReport}}
+                </p>
+                <p>
+                    总面积：{{task.acreage}} 亩
+                </p>
+                <p>
+                    价格：{{task.cost/10000}}万元
+                </p>
+            </div>
+        </div>
+    </tab>
+    <tab heading="服务结果"></tab>
+    <!--<a [routerLink]=" ['./result-detail'] ">
+        </a>-->
+</tabset>
