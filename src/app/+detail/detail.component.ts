@@ -51,8 +51,7 @@ console.log('`Detail` component loaded asynchronously');
           服务结果
         </a>
       </span>
-      <area-draw [task]="task" [init]=2>
-      </area-draw>
+  
 
     </div>
 
@@ -72,7 +71,7 @@ export class DetailComponent implements OnInit {
   public ngOnInit() {
     console.log('hello `Detail` component');
     // console.log(this.route.params['id']);
-    this.taskService.getTask(this.route.params._value['id'])
+    this.taskService.getTask(this.route.params['id'])
       .then(task => {
         this.task = task;
         console.log(this.task);

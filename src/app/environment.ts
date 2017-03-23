@@ -7,6 +7,7 @@ import {
   ApplicationRef,
   enableProdMode
 } from '@angular/core';
+// import { ENV } from '../custom-typings.d';
 // Environment Providers
 let PROVIDERS: any[] = [
   // common env directives

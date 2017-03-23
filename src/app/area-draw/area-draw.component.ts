@@ -32,7 +32,7 @@ export class AreaDrawComponent implements OnInit {
   // Set our default values
   // public TaskList = { username: '' };
   public tasks: Task[] = [];
-  public polygon: L.Draw.Polygon;
+  // public polygon: L.Draw.Polygon;
 
   @Input('init')
   controlType: number = 0;// 0-申请服务画区域  1-服务后看之前画的预定区域 2-服务后画区域

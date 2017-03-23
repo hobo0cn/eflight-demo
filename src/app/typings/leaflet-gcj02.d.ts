@@ -3,8 +3,8 @@ import "@types/leaflet";
 
 declare namespace L {
     export abstract class CRS {}
-    export class GCJ02 extends CRS {}
-    export namespace CRS {
+    // export class GCJ02 extends CRS {}
+    namespace CRS {
         // export class GCJ02 extends CRS {
         //   latLngToPoint(latlng: LatLngExpression, zoom: number): Point;
         //   pointToLatLng(point: PointExpression, zoom: number): LatLng;

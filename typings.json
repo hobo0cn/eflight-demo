@@ -1,0 +1,5 @@
+{
+  "globalDependencies": {
+    "leaflet-draw": "registry:dt/leaflet-draw#0.4.0+20170310235932"
+  }
+}

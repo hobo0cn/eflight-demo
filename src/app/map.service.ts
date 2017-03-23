@@ -1,16 +1,14 @@
-import "../custom-typings.d";
-import 'leaflet';
-import "./typings/leaflet-gcj02.d";
-import 'leaflet-gcj02';
-import './typings/Leaflet.MeasureAreaControl.d'
-// import 'Leaflet.MeasureAreaControl'
-import 'leaflet-draw';
+// import "../custom-typings.d";
+import 'leaflet'
+import 'leaflet-gcj02'
+import 'leaflet-draw'
 import 'rxjs/add/operator/map'
+import "./typings/leaflet-gcj02.d"
 
 import { Injectable } from "@angular/core";
 import { Http, Headers, RequestOptions } from "@angular/http";
 // import { Location } from "../core/location.class";
-import { Map } from "leaflet";
+import { Map } from "leaflet"
 // import * as _ from  'leaflet-gcj02/lib/transform.js';
 
 @Injectable()
@@ -51,13 +49,12 @@ export class MapService {
         maxZoom: 30
       }).addTo(this.map);
     }
-
     loadGeoJsonLayer(geojsonStr: string, functionFeatureClick: any): void {
         this.featureClickFunction = functionFeatureClick;
         let geoJsonLayer =  L.geoJSON(JSON.parse(geojsonStr), {
           onEachFeature: this.onEachFeature.bind(this)
         });
-      
+
         geoJsonLayer.addTo(this.map);
     }
     // loadGeoJson(): void {
@@ -104,7 +101,7 @@ export class MapService {
     }
 
     loadDrawCtrl(): any {
-      let drawnItems = new L.FeatureGroup();
+      let drawnItems = new L.FeatureGroup(this.vtLayer);
       this.map.addLayer(drawnItems);
 
       let drawControl = new L.Control.Draw({
@@ -122,7 +119,7 @@ export class MapService {
             });
         this.map.addControl(drawControl);
 
-        this.map.on('draw:created',  (e: Event) => {
+        this.map.on('draw:created',  (e: any) => {
                  console.log(e);
                  let type = e.layerType,
                      layer = e.layer;

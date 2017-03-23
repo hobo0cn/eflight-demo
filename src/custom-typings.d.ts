@@ -1,12 +1,14 @@
-/// <reference path="./app/typings/leaflet-gcj02.d.ts"/>
+/*/// <reference path="./app/typings/leaflet-gcj02.d.ts"/>
 /// <reference path="./app/typings/Leaflet.MeasureAreaControl.d.ts"/>
+*/
+// import '@types/leaflet';
+// import 'leaflet-gcj02';
+// import 'leaflet-gcj02/lib'
+// import 'Leaflet.MeasureAreaControl';
+// import 'Leaflet.MeasureAreaControl/lib';
+// import 'leaflet-draw';
+// import './app/typings/leaflet-gcj02.d'
 
-import '@types/leaflet';
-import 'leaflet-gcj02';
-import 'leaflet-gcj02/lib'
-import 'Leaflet.MeasureAreaControl';
-import 'Leaflet.MeasureAreaControl/lib';
-import 'leaflet-draw';
 // import 'leaflet-gcj02/lib/transform.js'
 
 /*
@@ -53,7 +55,26 @@ import * as _ from 'lodash'
  * You can include your type definitions in this file until you create one for the @types
  *
  */
+ // declare module 'leaflet-gcj02' {
+ //   export abstract class CRS {}
+ //   namespace CRS {
+ //      export const GCJ02: CRS;
+ //   }
+ //   export = CRS;
+ // }
 
+ declare namespace L {
+
+     // export class GCJ02 extends CRS {}
+     namespace CRS {
+
+         export const GCJ02: CRS;
+       //   export namespace CRS {
+       //     export const GCJ02: CRS;
+       // }
+
+     }
+ }
 // support NodeJS modules without type definitions
 declare module '*';
 
