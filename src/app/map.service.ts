@@ -52,8 +52,12 @@ export class MapService {
       }).addTo(this.map);
     }
 
-    loadGeoJsonLayer(geojsonStr: string): void {
-        let geoJsonLayer =  L.geoJSON(JSON.parse(geojsonStr));
+    loadGeoJsonLayer(geojsonStr: string, functionFeatureClick: any): void {
+        this.featureClickFunction = functionFeatureClick;
+        let geoJsonLayer =  L.geoJSON(JSON.parse(geojsonStr), {
+          onEachFeature: this.onEachFeature.bind(this)
+        });
+      
         geoJsonLayer.addTo(this.map);
     }
     // loadGeoJson(): void {

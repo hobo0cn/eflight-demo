@@ -70,9 +70,9 @@ export class AreaDrawComponent implements OnInit {
       this.mapService.loadResultLayer(this.task.wmsURL);
       // TODO 加载标绘的范围geojson layer
       if(this.controlType === 1) // 1-服务后看之前画的预定区域
-        this.mapService.loadGeoJsonLayer(this.task.areaGeojson);
+        this.mapService.loadGeoJsonLayer(this.task.areaGeojson, this.selectArea.bind(this));
       if(this.controlType === 2) // 2-服务后画出的区域
-        this.mapService.loadGeoJsonLayer(this.task.drawGeojson);
+        this.mapService.loadGeoJsonLayer(this.task.drawGeojson, this.selectArea.bind(this));
     }
     // //test
     // this.mapService.drawGeojson = 'test add by area-draw-component';
@@ -84,8 +84,8 @@ export class AreaDrawComponent implements OnInit {
   }
 
   selectArea(): void{
-    // TODO 跳转到任务类型选择
-    this._router.navigate(['/service-select']);
+    // TODO 设置task中区域的面积
+    this.task.acreage = 60.3;
   }
 
 }
