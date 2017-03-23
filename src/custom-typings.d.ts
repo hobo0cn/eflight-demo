@@ -1,4 +1,3 @@
-/// <reference path="./app/typings/require.d.ts"/>
 /// <reference path="./app/typings/leaflet-gcj02.d.ts"/>
 /// <reference path="./app/typings/Leaflet.MeasureAreaControl.d.ts"/>
 
