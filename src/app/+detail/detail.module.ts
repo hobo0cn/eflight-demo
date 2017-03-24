@@ -14,7 +14,7 @@ console.log('`Detail` bundle loaded asynchronously');
 @NgModule({
   declarations: [
     // Components / Directives/ Pipes
-    DetailComponent,
+    DetailComponent
   ],
   imports: [
     CommonModule,

@@ -3,14 +3,11 @@ import {
   Component,
   OnInit,
 } from '@angular/core';
-import {
-  Router,
-  Params
- } from '@angular/router';
 import { Location }    from '@angular/common';
-import { ActivatedRoute, Params } from '@angular/router';
+import { Router,ActivatedRoute, Params } from '@angular/router';
 import { Task } from '../task';
 import { TaskService } from '../task.service';
+
 // import { AreaDrawComponent } from '../area-draw';
 /*
  * We're loading this component asynchronously

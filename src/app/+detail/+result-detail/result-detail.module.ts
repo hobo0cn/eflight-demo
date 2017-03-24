@@ -12,13 +12,15 @@ console.log('`Detail` bundle loaded asynchronously');
   declarations: [
     // Components / Directives/ Pipes
     ResultDetailComponent
-
   ],
   imports: [
     CommonModule,
     FormsModule,
     RouterModule.forChild(routes),
   ],
+  exports:[
+    ResultDetailComponent
+  ]
 })
 export class ResultDetailModule {
   public static routes = routes;
