@@ -40,7 +40,7 @@ import { TaskService } from './task.service';
 import { MapService } from './map.service';
 import '../styles/styles.scss';
 import '../styles/headings.css';
-
+import {DpDatePickerModule} from 'ng2-date-picker';
 // Application wide providers
 const APP_PROVIDERS = [
   ...APP_RESOLVER_PROVIDERS,
@@ -77,6 +77,7 @@ type StoreType = {
     FormsModule,
     HttpModule,
     AreaDrawModule,
+    DpDatePickerModule,
     RouterModule.forRoot(ROUTES, { useHash: true, preloadingStrategy: PreloadAllModules })
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection

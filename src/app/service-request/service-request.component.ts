@@ -39,7 +39,7 @@ export class ServiceRequestComponent implements OnInit {
   public   is3DModel: Boolean; // 是否3D建模
   public   isReport: Boolean; // 是否需要报告
   public  projectDesc: string; //备注
-
+  public datePickerConfig = {};
   // TypeScript public modifiers
   constructor(
     private location: Location,
@@ -49,6 +49,11 @@ export class ServiceRequestComponent implements OnInit {
   ) {
     this.location = location;
     this.new_task = new Task();
+    // [config]="datePickerConfig"
+    this.datePickerConfig = {
+      format: "YYYY-MM-DD",
+      weekdayNames: {su: '日',mo: '一',tu: '二',we: '三',th: '四',fr: '五',sa: '六'}
+    }
   }
 
   public ngOnInit() {

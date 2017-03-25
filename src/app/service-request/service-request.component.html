@@ -2,15 +2,24 @@
 
 <div>
   <label>调查品种： </label>
-    <input [(ngModel)]="crop" placeholder="调查品种" />
+    <!-- <input [(ngModel)]="crop" placeholder="调查品种" /> -->
+    <select name="cropSelect" id="cropSelect" [(ngModel)]="crop" >
+          <option value="林地" selected>林地</option>
+          <option value="玉米" >玉米</option>
+          <option value="花生" >花生</option>
+          <option value="小麦" >小麦</option>
+          <option value="水稻" >水稻</option>
+    </select>
 </div>
 <div>
   <label>计划开始时间： </label>
-    <input [(ngModel)]="publishTime" placeholder="计划开始时间" id="datetimepicker">
+    <!-- <input [(ngModel)]="publishTime" placeholder="计划开始时间" id="datetimepicker"> -->
+    <dp-day-picker #dayPicker [(ngModel)]="publishTime" [config]="datePickerConfig"></dp-day-picker>
 </div>
 <div>
   <label>计划结束时间： </label>
-    <input [(ngModel)]="finishTime" placeholder="计划结束时间" id="datetimepicker">
+    <!-- <input [(ngModel)]="finishTime" placeholder="计划结束时间" id="datetimepicker"> -->
+    <dp-day-picker #dayPicker [(ngModel)]="finishTime" [config]="datePickerConfig"></dp-day-picker>
 </div>
 <div>
   <button (click)="areaDraw()">验标地块范围</button>
