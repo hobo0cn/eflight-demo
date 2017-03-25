@@ -1,3 +1,18 @@
 h1 {
-  color: #00BCD4;
+  color: #1860ca;
+}
+
+.app-header {
+  background: #1860ca
+}
+
+.app-header .title {
+  color: #FFFFFF;
+}
+
+.app-header .btn-add{
+  color: #FFFFFF;
+}
+.app-header  .btn-back{
+  color: #FFFFFF;
 }

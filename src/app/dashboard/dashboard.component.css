@@ -18,3 +18,14 @@
     text-align: right;
     padding: 0 1.2rem 1.2rem 0;
 }
+.app-header {
+  background: #1860ca
+}
+
+.app-header .title {
+  color: #FFFFFF;
+}
+
+.app-header .btn-add {
+  color: #FFFFFF;
+}

@@ -82,5 +82,8 @@ export class ServiceRequestComponent implements OnInit {
     this._router.navigate(['/dashboard']);
   }
 
+  back(): void {
+      this._router.navigate(['/service-select']);
+  }
 
 }

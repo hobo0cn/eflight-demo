@@ -46,5 +46,10 @@ export class ServiceSelectComponent implements OnInit {
     this._router.navigate(['/service-request']);
   }
 
+  back(): void {
+    // 打开任务详情
+    this._router.navigate(['/area-select']);
+  }
+
 
 }
