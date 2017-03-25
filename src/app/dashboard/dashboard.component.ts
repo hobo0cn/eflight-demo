@@ -88,6 +88,7 @@ export class DashboardComponent implements OnInit {
 
   open(id: number): void {
     // 打开任务详情
+    console.log(id);
     this._router.navigate(['/detail/' + id]);
   }
 

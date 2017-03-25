@@ -107,9 +107,9 @@ export class MapService {
       let drawControl = new L.Control.Draw({
                 draw: {
                   polyline: true,
-                  marker: true,
+                  marker: false,
                   rectangle: true,
-                  circle: true,
+                  circle: false,
                   polygon: true
                 },
                 edit: {

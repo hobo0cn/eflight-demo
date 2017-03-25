@@ -36,7 +36,7 @@ export class DetailComponent implements OnInit {
   public ngOnInit() {
     console.log('hello `Detail` component');
     // console.log(this.route.params['id']);
-    this.taskService.getTask(this.route.params['id'])
+    this.taskService.getTask(this.route.params._value['id'])
       .then(task => {
         this.task = task;
         console.log(this.task);
