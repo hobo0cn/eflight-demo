@@ -72,4 +72,8 @@ export class AreaSelectComponent implements OnInit {
     this._router.navigate(['/service-select']);
   }
 
+  back(): void {
+    // 打开任务详情
+    this._router.navigate(['/']);
+  }
 }

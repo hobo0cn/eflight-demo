@@ -11,3 +11,23 @@ a.active {
 html{
   font: 12px/1.5 "Arial","Microsoft YaHei","黑体","宋体",sans-serif;
 }
+header {
+  text-align: center;    
+  padding: 0.8rem 0;
+}
+header .title{
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+header .btn-navicon{
+    font-size: 1.8rem;
+}
+header .btn-navicon.pull-left{
+    position: relative;
+    left: 0.8rem;
+}
+header .btn-navicon.pull-right{
+    position: relative;
+    right: 0.8rem;
+    font-size: 1.7rem;
+}
