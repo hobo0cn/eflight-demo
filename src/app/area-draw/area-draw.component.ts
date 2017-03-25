@@ -58,8 +58,11 @@ export class AreaDrawComponent implements OnInit {
         zoomControl: false,
         center: L.latLng(23.4394111680718, 107.551593359032),
         zoom: 14,
+
         layers: [this.mapService.baseMaps.AeroMap]
     });
+
+
 
     L.control.zoom({ position: "bottomright" }).addTo(map);
     L.control.layers(this.mapService.baseMaps).addTo(map);
@@ -71,11 +74,13 @@ export class AreaDrawComponent implements OnInit {
     //如果任务初始化，则加载结果图层
     if(this.task){
       this.mapService.loadResultLayer(this.task.wmsURL);
+
       // TODO 加载标绘的范围geojson layer
       if(this.controlType === 1) // 1-服务后看之前画的预定区域
         this.mapService.loadGeoJsonLayer(this.task.areaGeojson, this.selectArea.bind(this));
       if(this.controlType === 2) // 2-服务后画出的区域
         this.mapService.loadGeoJsonLayer(this.task.drawGeojson, this.selectArea.bind(this));
+
     }
 
     // //test
@@ -90,6 +95,7 @@ export class AreaDrawComponent implements OnInit {
   selectArea(): void{
     // TODO 设置task中区域的面积
     this.task.acreage = 60.3;
+
   }
 
 }

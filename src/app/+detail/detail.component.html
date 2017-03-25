@@ -1,61 +1,75 @@
 <header class="app-header">
     <a class="pull-left btn-navicon btn-back" (click)="back()"><i class="glyphicon glyphicon-chevron-left"></i></a>
-    <span class="title">无人机验标</span>
+        <span class="title">{{title}}</span>
 </header>
-<tabset>
-    <tab heading="任务详情">
-        <div *ngIf="task">
-            <!-- <p>{{task.id}}</p> -->
-            <div>
+<div *ngIf="task">
+  <div *ngIf="task.status!=6">
+  <tabset>
+      <tab heading="任务详情">
 
-                <p>{{task.name}}</p>
-                <p><label>品种:</label> {{task.crop}}</p>
-                <p>
-                    <label>开始时间：</label>{{task.publishTime | date: 'yyyy.MM.dd'}}
-                </p>
-                <p>
-                    <label>结束时间：</label>{{task.finishTime | date: 'yyyy.MM.dd'}}
-                </p>
-                <p>
-                    <label> 服务需求备注:</label> {{task.notes}}
-                </p>
-                <p>
-                    是否加急：{{task.isUrgent}}
-                    是否3D建模: {{task.is3DModel}}
+              <!-- <p>{{task.id}}</p> -->
+              <div>
+                  <p>{{task.name}}</p>
+                  <p><label>品种:</label> {{task.crop}}</p>
+                  <p>
+                      <label>开始时间：</label>{{task.publishTime | date: 'yyyy.MM.dd'}}
+                  </p>
+                  <p>
+                      <label>结束时间：</label>{{task.finishTime | date: 'yyyy.MM.dd'}}
+                  </p>
+                  <p>
+                      <label> 服务需求备注:</label> {{task.notes}}
+                  </p>
+                  <p>
+                      是否加急：{{task.isUrgent}}
+                      是否3D建模: {{task.is3DModel}}
+                      <a [routerLink]=" ['./result-detail'] ">
+                        3D成果
+                      </a>
+                      是否需要报告: {{task.isReport}}
+                  </p>
+                  <p>
+                  <img src={{task.images[0]}} />
+                  </p>
+                  <p>
+                      <span> 总面积：{{task.acreage}} 亩</span>
+                      <span class="pull-right"> 价格：{{task.cost/10000}}万元</span>
+                  </p>
+                  <!-- <area-draw [init]=1 [task]="task">
+                  </area-draw> -->
+
+
+                  <!-- <span>
                     <a [routerLink]=" ['./result-detail'] ">
                       3D成果
                     </a>
-                    是否需要报告: {{task.isReport}}
-                </p>
-                <p>
-                <img src={{task.images[0]}} />
-                </p>
-                <p>
-                    <span> 总面积：{{task.acreage}} 亩</span>
-                    <span class="pull-right"> 价格：{{task.cost/10000}}万元</span>
-                </p>
-                <!-- <area-draw [init]=1 [task]="task">
-                </area-draw> -->
+                  </span> -->
+
+              </div>
 
 
-                <!-- <span>
-                  <a [routerLink]=" ['./result-detail'] ">
-                    3D成果
-                  </a>
-                </span> -->
+      </tab>
+      <tab heading="服务结果" (select)="reloadMap()">
 
-            </div>
+          <div class="detail-map" *ngIf="task">
+            <area-draw [init]=2 [task]="task">
+            </area-draw>
+
+          </div>
+      </tab>
+      <!--<a [routerLink]=" ['./result-detail'] ">
+          </a>-->
+  </tabset>
+  </div>
+  <div *ngIf="task.status===6">
+    <div class="panel">
+      <div class="detail-msg">
+        <div>
+          <p class="reject-client">您好尊敬的客户</p>
         </div>
-
-    </tab>
-    <tab heading="服务结果">
-
-        <div class="detail-map" *ngIf="task">
-          <area-draw [init]=2 [task]="task">
-          </area-draw>
-
-        </div>
-    </tab>
-    <!--<a [routerLink]=" ['./result-detail'] ">
-        </a>-->
-</tabset>
+        <p class="reject-notes"> 很抱歉，由于下列原因，您的订单被驳回</p>
+        <p class="reject-text"> 由于该地区飞手资源目前过于紧张，暂时无法承接该服务，请给予理解和支持</p>
+      </div>
+    </div>
+  </div>
+</div>

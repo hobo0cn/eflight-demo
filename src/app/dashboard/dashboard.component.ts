@@ -63,6 +63,8 @@ export class DashboardComponent implements OnInit {
             return '飞手正在服务';
         case TaskStatusEnum.finished:
             return '订单已完成';
+        case TaskStatusEnum.rejected:
+               return '驳回';
 
     }
     return '未知';
@@ -81,16 +83,19 @@ export class DashboardComponent implements OnInit {
             return false;
         case TaskStatusEnum.finished:
             return false;
+        case TaskStatusEnum.rejected:
+           return false;
 
     }
     return true;
 
   }
-  
+
 
   getTaskProcessRate(status: TaskStatusEnum): number {
     switch (status) {
         case TaskStatusEnum.created:
+        case TaskStatusEnum.rejected:
           return 0;
         case TaskStatusEnum.accepted:
             return 10;

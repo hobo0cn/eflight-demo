@@ -4,7 +4,8 @@ export enum TaskStatusEnum {
   canceled, // 业主已经取消
   allocated, // 已经分配飞行员
   processing, // 服务中
-  finished // 已经处理完成
+  finished, // 已经处理完成
+  rejected // 平台驳回
 };
 
 export class Task {

@@ -54,7 +54,7 @@ export const TASKS: Task[] = [
     isUrgent: true, // 是否加急
     is3DModel: true, // 是否3D建模
     isReport: true, // 是否需要报告
-    status: TaskStatusEnum.accepted,
+    status: TaskStatusEnum.rejected,
     pilot: 'Jack',  // 飞手
     acreage: 98, // 面积
     cost: 98*3000,  // 费用

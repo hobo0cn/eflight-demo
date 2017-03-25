@@ -48,6 +48,7 @@ export class MapService {
         crs: L.CRS.GCJ02,
         maxZoom: 30
       }).addTo(this.map);
+      wmsLayer.redraw();
     }
     loadGeoJsonLayer(geojsonStr: string, functionFeatureClick: any): void {
         this.featureClickFunction = functionFeatureClick;

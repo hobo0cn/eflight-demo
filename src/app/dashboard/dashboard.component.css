@@ -1,5 +1,5 @@
 .tasks{
-    list-style: nome;
+    list-style: none;
     margin:0;
     padding:0;
     background: #efeff5;
@@ -18,14 +18,13 @@
     text-align: right;
     padding: 0 1.2rem 1.2rem 0;
 }
-.app-header {
-  background: #1860ca
-}
 
-.app-header .title {
-  color: #FFFFFF;
+.progress {
+  background: rgba(255, 255, 255, 1);
+  border: 7px solid rgba(255, 255, 255, 1);
+  border-radius: 18px;
+  height: 18px;
 }
-
-.app-header .btn-add {
-  color: #FFFFFF;
+.progress-bar-custom {
+  background: rgba(32, 95, 212, 1);
 }

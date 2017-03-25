@@ -5,7 +5,8 @@ import {
 } from '@angular/core';
 import { Location }    from '@angular/common';
 import { Router,ActivatedRoute, Params } from '@angular/router';
-import { Task } from '../task';
+import { Task, TaskStatusEnum } from '../task';
+
 import { TaskService } from '../task.service';
 import { MapService} from '../map.service';
 // import { AreaDrawComponent } from '../area-draw';
@@ -24,7 +25,7 @@ console.log('`Detail` component loaded asynchronously');
 })
 export class DetailComponent implements OnInit {
   public task: Task;
-
+  public title: string;
   // TypeScript public modifiers
   constructor(
     public taskService: TaskService,
@@ -46,6 +47,10 @@ export class DetailComponent implements OnInit {
          .then(task => {
            this.task = task;
            console.log(this.task);
+           if(this.task.status===TaskStatusEnum.rejected)
+            this.title = "驳回原因";
+           else
+            this.title = "无人机验标";
 
          });
        // In a real app: dispatch action to load the details here.
@@ -62,4 +67,10 @@ export class DetailComponent implements OnInit {
     // 打开任务详情
     this._router.navigate(['/']);
   }
+
+  reloadMap(): void{
+    this.mapService.map.invalidateSize();
+  }
+
+
 }
