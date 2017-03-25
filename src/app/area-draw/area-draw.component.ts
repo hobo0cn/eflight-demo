@@ -38,6 +38,7 @@ export class AreaDrawComponent implements OnInit {
   controlType: number = 0;// 0-申请服务画区域  1-服务后看之前画的预定区域 2-服务后画区域
   @Input('task')
   task: Task;
+
   // TypeScript public modifiers
   constructor(
     public taskService: TaskService,
@@ -46,11 +47,13 @@ export class AreaDrawComponent implements OnInit {
     private mapService: MapService
   ) {
     this.location = location;
+
   }
 
   public ngOnInit() {
     console.log('hello `area-draw` component');
     // this.title.getData().subscribe(data => this.data = data);
+
     let map = L.map("mapid", {
         zoomControl: false,
         center: L.latLng(23.4394111680718, 107.551593359032),
@@ -74,6 +77,7 @@ export class AreaDrawComponent implements OnInit {
       if(this.controlType === 2) // 2-服务后画出的区域
         this.mapService.loadGeoJsonLayer(this.task.drawGeojson, this.selectArea.bind(this));
     }
+
     // //test
     // this.mapService.drawGeojson = 'test add by area-draw-component';
   }

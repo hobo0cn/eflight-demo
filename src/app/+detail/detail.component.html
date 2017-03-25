@@ -5,8 +5,9 @@
 <tabset>
     <tab heading="任务详情">
         <div *ngIf="task">
-            <p>{{task.id}}</p>
+            <!-- <p>{{task.id}}</p> -->
             <div>
+
                 <p>{{task.name}}</p>
                 <p><label>品种:</label> {{task.crop}}</p>
                 <p>
@@ -19,14 +20,30 @@
                     <label> 服务需求备注:</label> {{task.notes}}
                 </p>
                 <p>
-                    是否加急：{{task.isUrgent}} 是否3D建模: {{task.is3DModel}} 是否需要报告: {{task.isReport}}
+                    是否加急：{{task.isUrgent}}
+                    是否3D建模: {{task.is3DModel}}
+                    <a [routerLink]=" ['./result-detail'] ">
+                      3D成果
+                    </a>
+                    是否需要报告: {{task.isReport}}
+                </p>
+                <p>
+                <img src="http://yiyuntu-oss-bucket01.img-cn-shenzhen.aliyuncs.com/efligt/1_1.png@30p" />
                 </p>
                 <p>
                     <span> 总面积：{{task.acreage}} 亩</span>
                     <span class="pull-right"> 价格：{{task.cost/10000}}万元</span>
                 </p>
-                <!-- <area-draw [init]=2 [task]="task">
+                <!-- <area-draw [init]=1 [task]="task">
                 </area-draw> -->
+
+
+                <!-- <span>
+                  <a [routerLink]=" ['./result-detail'] ">
+                    3D成果
+                  </a>
+                </span> -->
+
             </div>
         </div>
 
@@ -35,6 +52,7 @@
         <div *ngIf="task">
           <area-draw [init]=2 [task]="task">
           </area-draw>
+
         </div>
     </tab>
     <!--<a [routerLink]=" ['./result-detail'] ">

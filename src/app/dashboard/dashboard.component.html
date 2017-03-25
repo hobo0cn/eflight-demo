@@ -8,10 +8,13 @@
       <div class="panel-body">
         <div class="row">
           <div class="col-sm-2">
-            <img src="" class="img-rounded" />
+            <img src={{task.thumbnail_URL}} class="img-rounded"
+            (click)="open(task.id); $event.stopPropagation()"/>
+            <!-- <img src="" class="img-rounded"/> -->
           </div>
           <div class="col-sm-10">
             <!--<span class="badge">{{task.id}}</span>-->
+
             <p>
               <a (click)="open(task.id); $event.stopPropagation()">{{task.name}}</a>
               <span class="text-success pull-right">{{getStatusString(task.status)}}</span>
@@ -31,8 +34,8 @@
       </div>
     </div>
     <hr>
-    <p class="btn-wrap">
-      <button class="btn btn-default cancel" (click)="cancel(task); $event.stopPropagation()"  *ngIf="task.status!=2">取消订单</button>
+    <p class="btn-wrap" >
+      <button class="btn btn-default cancel" (click)="cancel(task); $event.stopPropagation()"  *ngIf="isShowCancel(task.status)">取消订单</button>
     </p>
   </li>
 </ul>

@@ -16,7 +16,11 @@ console.log('`ResultDetail` component loaded asynchronously');
   selector: 'result-detail',
   template: `
     <h1>服务结果</h1>
-    
+    <iframe
+    src="https://www.altizure.com/project/58d39584f387231e6c93a095/model/embed#autoplay=true"
+    style="position: fixed; top: 0px; left: 0px; bottom: 0px; right: 0px; width: 100%; height: 100%; border: none; margin: 0; padding: 0; overflow: hidden;"
+    >
+   </iframe>
   `,
 })
 export class ResultDetailComponent implements OnInit {

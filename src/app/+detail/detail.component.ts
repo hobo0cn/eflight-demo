@@ -7,7 +7,7 @@ import { Location }    from '@angular/common';
 import { Router,ActivatedRoute, Params } from '@angular/router';
 import { Task } from '../task';
 import { TaskService } from '../task.service';
-
+import { MapService} from '../map.service';
 // import { AreaDrawComponent } from '../area-draw';
 /*
  * We're loading this component asynchronously
@@ -24,14 +24,18 @@ console.log('`Detail` component loaded asynchronously');
 })
 export class DetailComponent implements OnInit {
   public task: Task;
+
   // TypeScript public modifiers
   constructor(
     public taskService: TaskService,
     private location: Location,
     private route: ActivatedRoute,
-    public _router: Router
+    public _router: Router,
+    private mapService: MapService
+
   ) {
     this.location = location;
+
   }
   public ngOnInit() {
     console.log('hello `Detail` component');
@@ -42,9 +46,11 @@ export class DetailComponent implements OnInit {
          .then(task => {
            this.task = task;
            console.log(this.task);
+
          });
        // In a real app: dispatch action to load the details here.
     });
+
 
 
     // this.route.params

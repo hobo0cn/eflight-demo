@@ -69,6 +69,25 @@ export class DashboardComponent implements OnInit {
 
   }
 
+  isShowCancel(status: TaskStatusEnum): Boolean {
+    switch (status) {
+        case TaskStatusEnum.created:
+          return true;
+        case TaskStatusEnum.accepted:
+            return false;
+        case TaskStatusEnum.canceled:
+                return false;
+        case TaskStatusEnum.processing:
+            return false;
+        case TaskStatusEnum.finished:
+            return false;
+
+    }
+    return true;
+
+  }
+  
+
   getTaskProcessRate(status: TaskStatusEnum): number {
     switch (status) {
         case TaskStatusEnum.created:
@@ -81,7 +100,6 @@ export class DashboardComponent implements OnInit {
             return 30;
         case TaskStatusEnum.finished:
             return 100;
-
     }
     return 0;
   }
