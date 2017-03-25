@@ -36,11 +36,16 @@ export class DetailComponent implements OnInit {
   public ngOnInit() {
     console.log('hello `Detail` component');
     // console.log(this.route.params['id']);
-    this.taskService.getTask(this.route.params._value['id'])
-      .then(task => {
-        this.task = task;
-        console.log(this.task);
-      });
+    this.route.params.subscribe(params => {
+       let id = +params['id']; // (+) converts string 'id' to a number
+       this.taskService.getTask(id)
+         .then(task => {
+           this.task = task;
+           console.log(this.task);
+         });
+       // In a real app: dispatch action to load the details here.
+    });
+
 
     // this.route.params
     //   .switchMap((params: Params) => this.taskService.getTask(+params['id']))

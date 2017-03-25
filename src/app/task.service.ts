@@ -5,8 +5,8 @@ import { Http, Headers, RequestOptions } from "@angular/http";
 
 @Injectable()
 export class TaskService {
-  
-  public  drawGeojson: string = 'test';
+
+
   // private headers = new Headers({'Content-Type': 'application/json'});
   // private heroesUrl = 'api/heroes';  // URL to web api
   //
@@ -20,14 +20,14 @@ export class TaskService {
     return Promise.resolve(TASKS);
   }
 
-  getTask(id: string): Promise<Task> {
+  getTask(id: number): Promise<Task> {
     // const url = `${this.heroesUrl}/${id}`;
     // return this.http.get(url)
     //   .toPromise()
     //   .then(response => response.json().data as Hero)
     //   .catch(this.handleError);
     for (var i = 0; i < TASKS.length; i++) {
-      if (String(TASKS[i].id)===id){
+      if (TASKS[i].id===id){
         return Promise.resolve(TASKS[i]);
       }
     }
