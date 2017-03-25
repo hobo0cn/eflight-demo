@@ -25,10 +25,17 @@
                     <span> 总面积：{{task.acreage}} 亩</span>
                     <span class="pull-right"> 价格：{{task.cost/10000}}万元</span>
                 </p>
+                <!-- <area-draw [init]=2 [task]="task">
+                </area-draw> -->
             </div>
         </div>
+
     </tab>
     <tab heading="服务结果">
+        <div *ngIf="task">
+          <area-draw [init]=2 [task]="task">
+          </area-draw>
+        </div>
     </tab>
     <!--<a [routerLink]=" ['./result-detail'] ">
         </a>-->

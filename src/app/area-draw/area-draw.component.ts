@@ -10,7 +10,7 @@ import {TaskService} from '../task.service';
 import { MapService} from '../map.service';
 import {TaskStatusEnum} from '../task';
 import 'leaflet-draw';
-
+import 'leaflet-draw/dist/leaflet.draw.css'
 
 
 @Component({
