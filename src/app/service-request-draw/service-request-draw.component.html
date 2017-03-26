@@ -1,4 +1,10 @@
-<a [routerLink]=" ['../service-request'] ">
+<div class="servicerequest-draw">
+    <header class="app-header">
+        <a class="pull-left btn-navicon btn-back" (click)="back()"><i class="glyphicon glyphicon-chevron-left"></i></a>
+        <span class="title">地块范围</span>
+    </header>
+    <a class="btn btn-default btn-ok" [routerLink]=" ['../service-request'] ">
   确认范围
 </a>
-<area-draw></area-draw>
+    <area-draw></area-draw>
+</div>

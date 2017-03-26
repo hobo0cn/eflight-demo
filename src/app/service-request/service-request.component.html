@@ -1,47 +1,50 @@
-
-<header  class="app-header">
-   <a class="pull-left btn-navicon btn-back" (click)="back()"><i class="glyphicon glyphicon-chevron-left"></i></a>
-   <span class="title">新服务需求清单</span>
-   <a class="pull-right btn-navicon btn-select"  (click)="selectArea()"><i class="glyphicon glyphicon-search"></i></a>
+<header class="app-header">
+    <a class="pull-left btn-navicon btn-back" (click)="back()"><i class="glyphicon glyphicon-chevron-left"></i></a>
+    <span class="title">新服务需求清单</span>
+    <a class="pull-right btn-navicon btn-select" (click)="selectArea()"><i class="glyphicon glyphicon-search"></i></a>
 </header>
 
-<div>
-  <label>调查品种： </label>
-    <!-- <input [(ngModel)]="crop" placeholder="调查品种" /> -->
-    <select name="cropSelect" id="cropSelect" [(ngModel)]="crop" >
-          <option value="林地" selected>林地</option>
-          <option value="玉米" >玉米</option>
-          <option value="花生" >花生</option>
-          <option value="小麦" >小麦</option>
-          <option value="水稻" >水稻</option>
-    </select>
-</div>
-<div>
-  <label>计划开始时间： </label>
-    <!-- <input [(ngModel)]="publishTime" placeholder="计划开始时间" id="datetimepicker"> -->
-    <dp-day-picker #dayPicker [(ngModel)]="publishTime" [config]="datePickerConfig"></dp-day-picker>
-</div>
-<div>
-  <label>计划结束时间： </label>
-    <!-- <input [(ngModel)]="finishTime" placeholder="计划结束时间" id="datetimepicker"> -->
-    <dp-day-picker #dayPicker [(ngModel)]="finishTime" [config]="datePickerConfig"></dp-day-picker>
-</div>
-<div>
-  <button (click)="areaDraw()">验标地块范围</button>
-</div>
+<div class="container-fluid">
+    <div class="form-horizontal servicerequest-form">
+        <div class="form-group">
+            <label class="control-label">调查品种： </label>
+            <!-- <input [(ngModel)]="crop" placeholder="调查品种" /> -->
+            <select name="cropSelect" id="cropSelect" [(ngModel)]="crop" class="form-control">
+              <option value="林地" selected>林地</option>
+              <option value="玉米" >玉米</option>
+              <option value="花生" >花生</option>
+              <option value="小麦" >小麦</option>
+              <option value="水稻" >水稻</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="control-label">计划开始时间： </label>
+            <!-- <input [(ngModel)]="publishTime" placeholder="计划开始时间" id="datetimepicker"> -->
+            <dp-day-picker #dayPicker [(ngModel)]="publishTime" [config]="datePickerConfig" style="display: block;"></dp-day-picker>
+        </div>
+        <div class="form-group">
+            <label class="control-label">计划结束时间： </label>
+            <!-- <input [(ngModel)]="finishTime" placeholder="计划结束时间" id="datetimepicker"> -->
+            <dp-day-picker #dayPicker [(ngModel)]="finishTime" [config]="datePickerConfig" style="display: block;"></dp-day-picker>
+        </div>
+        <div class="form-group">
+            <button (click)="areaDraw()">验标地块范围</button>
+        </div>
 
-<div>
-  <textarea id="textareaEdit" id="projectDesc" placeholder="服务需求备注"  [(ngModel)]="projectDesc"></textarea>
+        <div class="form-group">
+            <textarea id="textareaEdit" id="projectDesc" placeholder="服务需求备注" [(ngModel)]="projectDesc" class="form-control"></textarea>
+        </div>
+
+        <div class="form-group">
+            <div class="col-xs-3"> <input type="checkbox" [(ngModel)]="isUrgent" checked/>加急</div>
+            <div class="col-xs-5"> <input type="checkbox" [(ngModel)]="is3DModel" checked/>生成3D模型</div>
+            <div class="col-xs-4"> <input type="checkbox" [(ngModel)]="isReport" checked/>需要报告</div>
+        </div>
+        <div class="form-group">
+            <button (click)="newTask()" class="btn btn-primary col-xs-offset-4">提交订单</button>
+        </div>
+    </div>
 </div>
-
-<div>
-  <input type="checkbox" [(ngModel)]="isUrgent" checked>加急<br>
-  <input type="checkbox" [(ngModel)]="is3DModel" checked>生成3D模型<br>
-  <input type="checkbox" [(ngModel)]="isReport" checked>需要报告<br>
-</div>
-
-<button (click)="newTask()">提交订单</button>
-
 <!-- <div>
   <area-draw [init]=0>
   </area-draw>

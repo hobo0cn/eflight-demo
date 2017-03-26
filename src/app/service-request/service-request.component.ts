@@ -1,7 +1,8 @@
 import {
   Component,
   OnInit,
-  ViewChild
+  ViewChild,
+  ViewEncapsulation
 } from '@angular/core';
 import { Location }    from '@angular/common';
 import {
@@ -26,7 +27,8 @@ import { MapService} from '../map.service';
   // Our list of styles in our component. We may add more to compose many styles together
   styleUrls: [ './service-request.component.css' ],
   // Every Angular template is first compiled by the browser before Angular runs it's compiler
-  templateUrl: './service-request.component.html'
+  templateUrl: './service-request.component.html',
+  encapsulation: ViewEncapsulation.None
 })
 export class ServiceRequestComponent implements OnInit {
   // Set our default values

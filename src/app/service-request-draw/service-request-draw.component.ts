@@ -1,7 +1,8 @@
 import {
   Component,
   OnInit,
-  ViewChild
+  ViewChild,
+  ViewEncapsulation
 } from '@angular/core';
 import { Location }    from '@angular/common';
 import {
@@ -26,7 +27,8 @@ import { AreaDrawComponent } from '../area-draw/area-draw.component';
   // Our list of styles in our component. We may add more to compose many styles together
   styleUrls: [ './service-request-draw.component.css' ],
   // Every Angular template is first compiled by the browser before Angular runs it's compiler
-  templateUrl: './service-request-draw.component.html'
+  templateUrl: './service-request-draw.component.html',
+  encapsulation: ViewEncapsulation.None
 })
 export class ServiceRequestDrawComponent implements OnInit {
   // Set our default values
@@ -46,6 +48,10 @@ export class ServiceRequestDrawComponent implements OnInit {
   public ngOnInit() {
     console.log('hello `dashboard` component');
     // this.title.getData().subscribe(data => this.data = data);
+  }
+
+  back(): void {
+      this._router.navigate(['/service-request']);
   }
 
 

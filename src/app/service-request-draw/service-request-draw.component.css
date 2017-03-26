@@ -1,0 +1,11 @@
+.servicerequest-draw .btn-ok {
+    position: absolute;
+    left: 50%;
+    margin-left: -1.2rem;
+    bottom: 1.2rem;
+    z-index: 1000;
+}
+
+.servicerequest-draw .map.leaflet-container {
+    top: 3.5rem;
+}
