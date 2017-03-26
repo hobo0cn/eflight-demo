@@ -73,6 +73,7 @@ export class AreaDrawComponent implements OnInit {
     this.mapService.loadDrawCtrl();
     //如果任务初始化，则加载结果图层
     if(this.task){
+
       this.mapService.loadResultLayer(this.task.wmsURL);
 
       // TODO 加载标绘的范围geojson layer

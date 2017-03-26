@@ -7,7 +7,7 @@
     <div class="panel">
       <div class="panel-body">
         <span class="text-success taskstatus">{{getStatusString(task.status)}}</span>
-        <div class="row">          
+        <div class="row">
           <div class="col-xs-3">
             <img src={{task.thumbnail_URL}} (click)="open(task.id); $event.stopPropagation()"/>
             <!-- <img src="" class="img-rounded"/> -->
@@ -15,12 +15,15 @@
           <div class="col-xs-9 taksproperties">
             <!--<span class="badge">{{task.id}}</span>-->
             <p class="taskname">
-              <a (click)="open(task.id); $event.stopPropagation()">{{task.name}}</a>              
+              <a (click)="open(task.id); $event.stopPropagation()">{{task.name}}</a>
             </p>
             <p>品种: {{task.crop}}</p>
             <!--<button class="open" (click)="open(task.id); $event.stopPropagation()">打开</button>-->
             <p>
-              开始时间：{{task.publishTime | date: 'yyyy.MM.dd'}} 结束时间：{{task.finishTime | date: 'yyyy.MM.dd'}}
+              开始时间：{{task.publishTime | date: 'yyyy.MM.dd'}}
+            </p>
+            <p>
+               结束时间：{{task.finishTime | date: 'yyyy.MM.dd'}}
             </p>
             <div class="row">
 
@@ -46,8 +49,9 @@
           </div>
         </div>
         <div class="row">
+          <div class="col-xs-4 text-strong">3 天</div>
           <div class="col-xs-4 text-strong">{{task.acreage}} 亩</div>
-          <div class="col-xs-4 text-strong">{{task.cost/10000}}万元</div>          
+          <div class="col-xs-4 text-strong">{{task.cost/10000}}万元</div>
         </div>
       </div>
     </div>

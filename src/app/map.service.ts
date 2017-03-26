@@ -22,6 +22,8 @@ export class MapService {
     private polygon: any;
     public polygonArea: number = 0; // 测量的面积
     public  drawGeojson: string = '';
+    public drawnItems: any;
+    public drawControl:  L.Control.Draw;
     constructor(private http: Http) {
         // this.featureClickFunction = featureClickFunction;
         this.baseMaps = {
@@ -98,13 +100,15 @@ export class MapService {
                   });
                   this.vtLayer.addTo(this.map);
               });
+          this.loadDrawCtrl();
       }
     }
 
     loadDrawCtrl(): any {
       let drawnItems = new L.FeatureGroup(this.vtLayer);
-      this.map.addLayer(drawnItems);
 
+      this.map.addLayer(drawnItems);
+      this.drawnItems = drawnItems;
       let drawControl = new L.Control.Draw({
                 draw: {
                   polyline: true,
@@ -114,14 +118,17 @@ export class MapService {
                   polygon: true
                 },
                 edit: {
-                    featureGroup: drawnItems,
+                    featureGroup: this.drawnItems,
                     remove: true
                 }
             });
+        this.drawControl = drawControl;
         this.map.addControl(drawControl);
 
         this.map.on('draw:created',  (e: any) => {
                  console.log(e);
+                let layer1 = (e as L.DrawEvents.Created).layer;
+           			this.drawnItems.addLayer(layer1);
                  let type = e.layerType,
                      layer = e.layer;
                  let anno_cat = "";
