@@ -6,18 +6,16 @@
   <li *ngFor="let task of tasks">
     <div class="panel">
       <div class="panel-body">
-        <div class="row">
-          <div class="col-xs-4">
-            <img src={{task.thumbnail_URL}}
-            (click)="open(task.id); $event.stopPropagation()"/>
+        <span class="text-success taskstatus">{{getStatusString(task.status)}}</span>
+        <div class="row">          
+          <div class="col-xs-3">
+            <img src={{task.thumbnail_URL}} (click)="open(task.id); $event.stopPropagation()"/>
             <!-- <img src="" class="img-rounded"/> -->
           </div>
-          <div class="col-xs-8">
+          <div class="col-xs-9 taksproperties">
             <!--<span class="badge">{{task.id}}</span>-->
-
-            <p>
-              <a (click)="open(task.id); $event.stopPropagation()">{{task.name}}</a>
-              <span class="text-success pull-right">{{getStatusString(task.status)}}</span>
+            <p class="taskname">
+              <a (click)="open(task.id); $event.stopPropagation()">{{task.name}}</a>              
             </p>
             <p>品种: {{task.crop}}</p>
             <!--<button class="open" (click)="open(task.id); $event.stopPropagation()">打开</button>-->
@@ -45,23 +43,19 @@
                 {{getTaskProcessRate(task.status)}}%
               </div>
             </div>
-
-
-
           </div>
-          <div class="col-xs-12">
-                        <!-- <div class="col-xs-4"> 进度：{{getTaskProcessRate(task.status)}}%</div> -->
-              <div class="col-xs-6">总面积：{{task.acreage}} 亩</div>
-              <div class="col-xs-6"> 价格：{{task.cost/10000}}万元</div>
-          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-4 text-strong">{{task.acreage}} 亩</div>
+          <div class="col-xs-4 text-strong">{{task.cost/10000}}万元</div>          
         </div>
       </div>
     </div>
     <div *ngIf="isShowCancel(task.status)">
-    <hr>
-    <p class="btn-wrap" >
-      <button class="btn btn-default cancel" (click)="cancel(task); $event.stopPropagation()"  *ngIf="isShowCancel(task.status)">取消订单</button>
-    </p>
+      <hr>
+      <p class="btn-wrap" >
+        <button class="btn btn-default cancel" (click)="cancel(task); $event.stopPropagation()"  *ngIf="isShowCancel(task.status)">取消订单</button>
+      </p>
     </div>
   </li>
 </ul>
