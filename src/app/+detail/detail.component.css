@@ -77,18 +77,19 @@
 }
 
 .task-detail .reject-client {
-    font-size: 18px;
+    font-size: 1.4rem;
+    padding: 1rem 1rem;
     color: #FFFFFF;
-    background-color: #606862;
+    background-color: #606062;
 }
 
 .task-detail .reject-notes {
-    font-size: 18px;
+    font-size: 1.4rem;
     color: #666666;
 }
 
 .task-detail .reject-text {
-    font-size: 18px;
+    font-size: 1.4rem;
     color: #1C77D4;
-    line-height: 38px;
+    line-height: 2rem;
 }

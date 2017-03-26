@@ -70,12 +70,14 @@
     </div>
     <div *ngIf="task.status===6 ">
         <div class="panel ">
-            <div class="detail-msg ">
+            <div class="detail-msg">
                 <div>
-                    <p class="reject-client ">您好尊敬的客户</p>
+                    <p class="reject-client">您好,尊敬的客户</p>
                 </div>
-                <p class="reject-notes "> 很抱歉，由于下列原因，您的订单被驳回</p>
-                <p class="reject-text "> 由于该地区飞手资源目前过于紧张，暂时无法承接该服务，请给予理解和支持</p>
+                <div class="container-fluid">
+                    <p class="reject-notes"> 很抱歉，由于下列原因，您的订单被驳回：</p>
+                    <p class="reject-text"> 由于该地区飞手资源目前过于紧张，暂时无法承接该服务，请给予理解和支持</p>
+                </div>
             </div>
         </div>
     </div>
