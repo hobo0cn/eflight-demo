@@ -52,13 +52,41 @@ export class MapService {
       }).addTo(this.map);
       wmsLayer.redraw();
     }
+
     loadGeoJsonLayer(geojsonStr: string, functionFeatureClick: any): void {
+      //   let geojsonStyle = {
+      //     fillColor: "#ff7800",
+      //     color: "#ff7800",
+      //     weight: 3,
+      //     opacity: 1,
+      //     fillOpacity: 0.001
+      // };
         this.featureClickFunction = functionFeatureClick;
+        // L.geoJSON()
+
         let geoJsonLayer =  L.geoJSON(JSON.parse(geojsonStr), {
-          onEachFeature: this.onEachFeature.bind(this)
+          onEachFeature: this.onEachFeature.bind(this),
+          style: function (feature) {
+              return {
+                fillColor: "#ff7800",
+                color: "#ff7800",
+                weight: 3,
+                opacity: 1,
+                fillOpacity: 0.001
+              };
+            }
+
         });
+        geoJsonLayer.bindPopup(this.geoUtilFunction.bind(this));
 
         geoJsonLayer.addTo(this.map);
+    }
+    geoUtilFunction(layer: any) {
+      let latlngs = layer._defaultShape ?  layer._defaultShape() : layer.getLatLngs();
+
+       let area = L.GeometryUtil.geodesicArea(latlngs);
+      //  this.polygonArea =  L.GeometryUtil.readableArea(area, true);
+      return (area/666.6666).toFixed(2)+ '亩';
     }
     // loadGeoJson(): void {
     //    this.http.get("../assets/geojson/guang_xi_geo.json")
@@ -100,7 +128,7 @@ export class MapService {
                   });
                   this.vtLayer.addTo(this.map);
               });
-          this.loadDrawCtrl();
+          // this.loadDrawCtrl();
       }
     }
 
@@ -128,11 +156,13 @@ export class MapService {
         this.map.on('draw:created',  (e: any) => {
                  console.log(e);
                 let layer1 = (e as L.DrawEvents.Created).layer;
+                layer1.bindPopup(this.geoUtilFunction.bind(this));
            			this.drawnItems.addLayer(layer1);
                  let type = e.layerType,
                      layer = e.layer;
                  let anno_cat = "";
                  let anno_geojson = "";
+
               if (type === 'marker') {
                 //  this.marker.disable();
                  anno_cat = "Marker";
