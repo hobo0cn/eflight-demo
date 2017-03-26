@@ -1,75 +1,82 @@
 <header class="app-header">
     <a class="pull-left btn-navicon btn-back" (click)="back()"><i class="glyphicon glyphicon-chevron-left"></i></a>
-        <span class="title">{{title}}</span>
+    <span class="title">{{title}}</span>
 </header>
-<div *ngIf="task">
-  <div *ngIf="task.status!=6">
-  <tabset>
-      <tab heading="任务详情">
-
-              <!-- <p>{{task.id}}</p> -->
-              <div>
-                  <p>{{task.name}}</p>
-                  <p><label>品种:</label> {{task.crop}}</p>
-                  <p>
-                      <label>开始时间：</label>{{task.publishTime | date: 'yyyy.MM.dd'}}
-                  </p>
-                  <p>
-                      <label>结束时间：</label>{{task.finishTime | date: 'yyyy.MM.dd'}}
-                  </p>
-                  <p>
-                      <label> 服务需求备注:</label> {{task.notes}}
-                  </p>
-                  <p>
-                      是否加急：{{task.isUrgent}}
-                      是否3D建模: {{task.is3DModel}}
-                      <a [routerLink]=" ['./result-detail'] ">
-                        3D成果
-                      </a>
-                      是否需要报告: {{task.isReport}}
-                  </p>
-                  <p>
-                  <img src={{task.images[0]}} />
-                  </p>
-                  <p>
-                      <span> 总面积：{{task.acreage}} 亩</span>
-                      <span class="pull-right"> 价格：{{task.cost/10000}}万元</span>
-                  </p>
-                  <!-- <area-draw [init]=1 [task]="task">
+<div *ngIf="task" class="task-detail">
+    <div *ngIf="task.status!=6">
+        <tabset>
+            <tab heading="任务详情">
+                <!-- <p>{{task.id}}</p> -->
+                <div class="properties">
+                    <div class="module">
+                        <!--<p>{{task.name}}</p>-->
+                        <p><label>品种:</label> <span>{{task.crop}}</span></p>
+                        <p>
+                            <label>开始时间：</label> <span>{{task.publishTime | date: 'yyyy.MM.dd'}}</span>
+                        </p>
+                        <p>
+                            <label>结束时间：</label> <span>{{task.finishTime | date: 'yyyy.MM.dd'}}</span>
+                        </p>
+                    </div>
+                    <div class="module">
+                        <p class="m-title">
+                            地块范围
+                        </p>
+                        <p>
+                            <img src={{task.images[0]}} />
+                        </p>
+                    </div>
+                    <div class="module">
+                        <p class="m-title">
+                            服务需求备注<span class="comment">(补充服务需求内容)</span>
+                        </p>
+                        <p class="text-area">
+                            {{task.notes}}
+                        </p>
+                        <p>
+                            <a class="text-border" [ngClass]="{'text-primary':task.isUrgent}">加急</a>
+                            <a class="text-border" [ngClass]="{'text-primary':task.is3DModel}">三维</a>
+                            <a [routerLink]=" ['./result-detail']" *ngIf="task.is3DModel">3D成果</a>
+                            <a class="text-border" [ngClass]="{'text-primary':task.isReport}">生成报告</a>
+                            <!--是否加急：{{task.isUrgent}} 是否3D建模: {{task.is3DModel}}
+                            是否需要报告: {{task.isReport}}-->
+                        </p>
+                    </div>
+                    <div class=" row total ">
+                        <div class="col-xs-4 "><label> 总面积：</label>{{task.acreage}} 亩</div>
+                        <div class="col-xs-4 col-xs-offset-4 "> <label>价格：</label>{{task.cost/10000}}万元</div>
+                    </div>
+                    <!-- <area-draw [init]=1 [task]="task ">
                   </area-draw> -->
 
 
-                  <!-- <span>
-                    <a [routerLink]=" ['./result-detail'] ">
+                    <!-- <span>
+                    <a [routerLink]=" [ './result-detail'] ">
                       3D成果
                     </a>
                   </span> -->
 
-              </div>
-
-
-      </tab>
-      <tab heading="服务结果" (select)="reloadMap()">
-
-          <div class="detail-map" *ngIf="task">
-            <area-draw [init]=2 [task]="task">
-            </area-draw>
-
-          </div>
-      </tab>
-      <!--<a [routerLink]=" ['./result-detail'] ">
+                </div>
+            </tab>
+            <tab heading="服务结果 " (select)="reloadMap() ">
+                <div class="detail-map " *ngIf="task ">
+                    <area-draw [init]=2 [task]="task ">
+                    </area-draw>
+                </div>
+            </tab>
+            <!--<a [routerLink]=" [ './result-detail'] ">
           </a>-->
-  </tabset>
-  </div>
-  <div *ngIf="task.status===6">
-    <div class="panel">
-      <div class="detail-msg">
-        <div>
-          <p class="reject-client">您好尊敬的客户</p>
-        </div>
-        <p class="reject-notes"> 很抱歉，由于下列原因，您的订单被驳回</p>
-        <p class="reject-text"> 由于该地区飞手资源目前过于紧张，暂时无法承接该服务，请给予理解和支持</p>
-      </div>
+        </tabset>
     </div>
-  </div>
+    <div *ngIf="task.status===6 ">
+        <div class="panel ">
+            <div class="detail-msg ">
+                <div>
+                    <p class="reject-client ">您好尊敬的客户</p>
+                </div>
+                <p class="reject-notes "> 很抱歉，由于下列原因，您的订单被驳回</p>
+                <p class="reject-text "> 由于该地区飞手资源目前过于紧张，暂时无法承接该服务，请给予理解和支持</p>
+            </div>
+        </div>
+    </div>
 </div>

@@ -1,11 +1,10 @@
+import { ViewEncapsulation } from '@angular/core';
 import 'rxjs/add/operator/switchMap';
-import {
-  Component,
-  OnInit,
-} from '@angular/core';
+import {Component,OnInit } from '@angular/core';
 import { Location }    from '@angular/common';
 import { Router,ActivatedRoute, Params } from '@angular/router';
 import { Task, TaskStatusEnum } from '../task';
+import * as _ from 'lodash';
 
 import { TaskService } from '../task.service';
 import { MapService} from '../map.service';
@@ -21,7 +20,8 @@ console.log('`Detail` component loaded asynchronously');
 @Component({
   selector: 'detail',
   styleUrls: [ './detail.component.css' ],
-  templateUrl:'./detail.component.html'
+  templateUrl:'./detail.component.html',
+  encapsulation: ViewEncapsulation.None
 })
 export class DetailComponent implements OnInit {
   public task: Task;
@@ -56,8 +56,6 @@ export class DetailComponent implements OnInit {
        // In a real app: dispatch action to load the details here.
     });
 
-
-
     // this.route.params
     //   .switchMap((params: Params) => this.taskService.getTask(+params['id']))
     //   .subscribe(task => this.task = task);
@@ -69,7 +67,9 @@ export class DetailComponent implements OnInit {
   }
 
   reloadMap(): void{
-    this.mapService.map.invalidateSize();
+    setTimeout(_.bind(function() {
+      this.mapService.map.invalidateSize();
+    },this), 100);
   }
 
 
