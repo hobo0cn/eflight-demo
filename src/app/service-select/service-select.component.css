@@ -1,0 +1,33 @@
+.services{
+    list-style: none;
+    margin:0;
+    padding:0;
+    background: #efeff5;
+}
+.services li{
+    background: #FFFFFF;
+    /*margin-bottom: 1.3rem;*/
+}
+.services li .panel{
+    box-shadow:none;
+}
+.services li hr{
+    margin-top: 0;
+}
+
+.service-thumbail{
+  width: 90px;
+  height: 90px;
+}
+
+.service-title {
+  font-size: 16px;
+  color: #1C77D4;
+  line-height: 38px;
+}
+
+.service-subtitle {
+  font-size: 15px;
+  color: #666666;
+
+}

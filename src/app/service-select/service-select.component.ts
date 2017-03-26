@@ -25,7 +25,7 @@ import {
 export class ServiceSelectComponent implements OnInit {
   // Set our default values
   // public TaskList = { username: '' };
-
+  public services: any[];
   // TypeScript public modifiers
   constructor(
     private location: Location,
@@ -37,7 +37,24 @@ export class ServiceSelectComponent implements OnInit {
   public ngOnInit() {
     console.log('hello `dashboard` component');
     // this.title.getData().subscribe(data => this.data = data);
-
+    this.services = [
+      {
+        img: "/assets/img/service/1.png",
+        title: "种植分布调查"
+      },
+      {
+        img: "/assets/img/service/2.png",
+        title: "无人机验标"
+      },
+      {
+        img: "/assets/img/service/3.png",
+        title: "长势监测"
+      },
+      {
+        img: "/assets/img/service/4.png",
+        title: "灾损监测评估"
+      }
+    ]
 
   }
 

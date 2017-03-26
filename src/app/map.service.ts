@@ -22,6 +22,7 @@ export class MapService {
     private polygon: any;
     public polygonArea: number = 0; // 测量的面积
     public  drawGeojson: string = '';
+    public drawnItems: any;
     constructor(private http: Http) {
         // this.featureClickFunction = featureClickFunction;
         this.baseMaps = {
@@ -103,8 +104,9 @@ export class MapService {
 
     loadDrawCtrl(): any {
       let drawnItems = new L.FeatureGroup(this.vtLayer);
-      this.map.addLayer(drawnItems);
 
+      this.map.addLayer(drawnItems);
+      this.drawnItems = drawnItems;
       let drawControl = new L.Control.Draw({
                 draw: {
                   polyline: true,
@@ -114,7 +116,7 @@ export class MapService {
                   polygon: true
                 },
                 edit: {
-                    featureGroup: drawnItems,
+                    featureGroup: this.drawnItems,
                     remove: true
                 }
             });
