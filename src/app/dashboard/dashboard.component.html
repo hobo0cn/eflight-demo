@@ -51,10 +51,12 @@
         </div>
       </div>
     </div>
-    <hr>
-    <p class="btn-wrap" >
-      <button class="btn btn-default cancel" (click)="cancel(task); $event.stopPropagation()"  *ngIf="isShowCancel(task.status)">取消订单</button>
-    </p>
+    <div *ngIf="isShowCancel(task.status)">
+      <hr>
+      <p class="btn-wrap" >
+        <button class="btn btn-default cancel" (click)="cancel(task); $event.stopPropagation()"  *ngIf="isShowCancel(task.status)">取消订单</button>
+      </p>
+    </div>
   </li>
 </ul>
 <!--<button (click)="newServiceRequest()">新服务需求</button>-->
