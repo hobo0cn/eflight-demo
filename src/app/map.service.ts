@@ -23,6 +23,7 @@ export class MapService {
     public polygonArea: number = 0; // 测量的面积
     public  drawGeojson: string = '';
     public drawnItems: any;
+    public drawControl:  L.Control.Draw;
     constructor(private http: Http) {
         // this.featureClickFunction = featureClickFunction;
         this.baseMaps = {
@@ -99,6 +100,7 @@ export class MapService {
                   });
                   this.vtLayer.addTo(this.map);
               });
+          this.loadDrawCtrl();
       }
     }
 
@@ -120,10 +122,13 @@ export class MapService {
                     remove: true
                 }
             });
+        this.drawControl = drawControl;
         this.map.addControl(drawControl);
 
         this.map.on('draw:created',  (e: any) => {
                  console.log(e);
+                let layer1 = (e as L.DrawEvents.Created).layer;
+           			this.drawnItems.addLayer(layer1);
                  let type = e.layerType,
                      layer = e.layer;
                  let anno_cat = "";
