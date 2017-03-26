@@ -10,6 +10,23 @@
 }
 .tasks li .panel{
     box-shadow:none;
+    position: relative;
+    margin-bottom: 0;
+}
+.tasks li .panel .taskstatus{
+    position: absolute;
+    top:1.2rem;
+    right:0.5rem;
+}
+.tasks li .panel .taksproperties{
+    color: #969696;
+    font-size: 0.9rem;
+}
+.tasks li .panel .taskname a,.tasks li .panel .taskname a:visited{
+color:#222222;
+text-decoration: none;
+font-size: 1.2rem;
+font-weight: bold;
 }
 .tasks li hr{
     margin-top: 0;
