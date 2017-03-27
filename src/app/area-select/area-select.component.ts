@@ -8,7 +8,7 @@ import { Task } from '../task';
 import {TaskService} from '../task.service';
 import { MapService} from '../map.service';
 import {TaskStatusEnum} from '../task';
-
+import * as _ from 'lodash';
 import 'leaflet/dist/leaflet.css';
 
 @Component({
@@ -59,12 +59,22 @@ export class AreaSelectComponent implements OnInit {
     // this.mapService.loadResultLayer();
     this.mapService.toggleSelectLayer(this.selectArea.bind(this));
 
+
     // this.geocoder.getCurrentLocation()
     //     .subscribe(
     //         location => map.panTo([location.latitude, location.longitude]),
     //         err => console.error(err)
     //     );
     // this.toolbarComponent.Initialize();
+  }
+
+  public ngAfterContentInit() {
+    // Component content has been initialized
+    console.log('ngAfterContentInit');
+    this.mapService.map.invalidateSize();
+    // setTimeout(_.bind(function() {
+    //   this.mapService.map.invalidateSize();
+    // },this), 100);
   }
 
   public selectArea(): void{

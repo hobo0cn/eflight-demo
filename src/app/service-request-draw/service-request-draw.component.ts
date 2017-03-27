@@ -14,7 +14,6 @@ import { TaskService } from '../task.service';
 import { TaskStatusEnum } from '../task';
 import { AreaDrawComponent } from '../area-draw/area-draw.component';
 
-
 @Component({
   // The selector is what angular internally uses
   // for `document.querySelectorAll(selector)` in our index.html
@@ -40,6 +39,7 @@ export class ServiceRequestDrawComponent implements OnInit {
     private location: Location,
     public _router: Router,
     public taskService: TaskService
+
   ) {
     this.location = location;
 
@@ -49,6 +49,7 @@ export class ServiceRequestDrawComponent implements OnInit {
     console.log('hello `dashboard` component');
     // this.title.getData().subscribe(data => this.data = data);
   }
+
 
   back(): void {
       this._router.navigate(['/service-request']);

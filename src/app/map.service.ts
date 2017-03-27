@@ -86,7 +86,9 @@ export class MapService {
 
        let area = L.GeometryUtil.geodesicArea(latlngs);
       //  this.polygonArea =  L.GeometryUtil.readableArea(area, true);
-      return (area/666.6666).toFixed(2)+ '亩';
+      let  polygonArea = (area/666.6666).toFixed(2);
+      this.polygonArea = Number(polygonArea);
+      return polygonArea+ '亩';
     }
     // loadGeoJson(): void {
     //    this.http.get("../assets/geojson/guang_xi_geo.json")
