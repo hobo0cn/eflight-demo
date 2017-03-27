@@ -54,7 +54,7 @@ export class AreaDrawComponent implements OnInit {
     console.log('hello `area-draw` component');
     // this.title.getData().subscribe(data => this.data = data);
 
-    let map = L.map("mapid", {
+    let map =  L.map("mapid", {
         zoomControl: false,
         center: L.latLng(23.4394111680718, 107.551593359032),
         zoom: 14,

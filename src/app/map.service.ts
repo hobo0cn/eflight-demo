@@ -27,7 +27,10 @@ export class MapService {
     constructor(private http: Http) {
         // this.featureClickFunction = featureClickFunction;
         this.baseMaps = {
-            AeroMap: L.tileLayer("http://map.yiyuntu.cn:9009/arctiler/arcgis/services/GoogleChinaHybridMap/MapServer/tile/{z}/{y}/{x}", {
+            // AeroMap: L.tileLayer("http://map.yiyuntu.cn:9009/arctiler/arcgis/services/GoogleChinaHybridMap/MapServer/tile/{z}/{y}/{x}", {
+            //
+            // }),
+            AeroMap: L.tileLayer("http://api.aeromap.cn/map/GoogleChinaHybridMap/{z}/{y}/{x}?X-API-KEY=f73a670d-20a2-329c-9c18-4b88c6eba8c7", {
 
             }),
             Esri: L.tileLayer("http://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}", {
@@ -182,6 +185,11 @@ export class MapService {
               //TODO 将geojson存储在task中
               this.drawGeojson = anno_geojson;
               console.log(this.drawGeojson);
+        });
+        this.map.on('click',  (e: any) => {
+              console.log("map click");
+              this.map.invalidateSize();
+
         });
     }
 
