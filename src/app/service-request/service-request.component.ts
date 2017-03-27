@@ -73,12 +73,21 @@ export class ServiceRequestComponent implements OnInit {
     // console.log(this.taskService.drawGeojson);
 
     this.new_task.name = "无人机验标";
-    this.new_task.status = TaskStatusEnum.created;
+    this.new_task.status = TaskStatusEnum.rejected;
     this.new_task.crop = this.crop;
     this.new_task.notes = this.projectDesc;
     this.new_task.areaGeojson = this.mapService.drawGeojson;
+    this.new_task.drawGeojson = this.mapService.drawGeojson;
+    this.new_task.isUrgent = this.isUrgent;
+    this.new_task.is3DModel = this.is3DModel;
+    this.new_task.isReport = this.isReport;
+    this.new_task.publishTime = this.publishTime;
+    this.new_task.finishTime = this.finishTime;
     this.new_task.acreage = 60.3;
     this.new_task.cost = this.new_task.acreage*3000;
+    this.new_task.wmsURL = 'wsgeotiff:48'; // WMS URL
+    this.new_task.images = ["http://yiyuntu-oss-bucket01.img-cn-shenzhen.aliyuncs.com/efligt/2_1.png@30p"];// 上传图片URL
+    this.new_task.thumbnail_URL = 'http://yiyuntu-oss-bucket01.img-cn-shenzhen.aliyuncs.com/efligt/2.png@15p';
     this.taskService.create(this.new_task);
 
     this._router.navigate(['/dashboard']);

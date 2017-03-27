@@ -52,7 +52,7 @@ export class AreaSelectComponent implements OnInit {
     });
 
     L.control.zoom({ position: "bottomright" }).addTo(map);
-    L.control.layers(this.mapService.baseMaps).addTo(map);
+    // L.control.layers(this.mapService.baseMaps).addTo(map);
     L.control.scale().addTo(map);
     this.mapService.map = map;
 
