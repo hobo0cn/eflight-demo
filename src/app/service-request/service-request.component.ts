@@ -84,7 +84,7 @@ export class ServiceRequestComponent implements OnInit {
     this.new_task.publishTime = this.publishTime;
     this.new_task.finishTime = this.finishTime;
     this.new_task.acreage = this.mapService.polygonArea;
-    this.new_task.cost = this.new_task.acreage*3000;
+    this.new_task.cost = this.new_task.acreage*600;
     this.new_task.wmsURL = 'wsgeotiff:48'; // WMS URL
     this.new_task.images = ["http://yiyuntu-oss-bucket01.img-cn-shenzhen.aliyuncs.com/efligt/2_1.png@30p"];// 上传图片URL
     this.new_task.thumbnail_URL = 'http://yiyuntu-oss-bucket01.img-cn-shenzhen.aliyuncs.com/efligt/2.png@15p';

@@ -47,7 +47,7 @@ export class AreaSelectComponent implements OnInit {
     let map = L.map("mapid", {
         zoomControl: false,
         center: L.latLng(23.4394111680718, 107.551593359032),
-        zoom: 5,
+        zoom: 4,
         layers: [this.mapService.createBaselayer()]
     });
 
