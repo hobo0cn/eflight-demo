@@ -9,9 +9,9 @@ export const TASKS: Task[] = [
     id: 1,
     name: 'A林地测量任务', // 任务名称
     publishTime: new Date('2017/3/18'), // 发布时间
-    isUrgent: true, // 是否加急
+    isUrgent: false, // 是否加急
     is3DModel: true, // 是否3D建模
-    isReport: true, // 是否需要报告
+    isReport: false, // 是否需要报告
     status: TaskStatusEnum.finished,
     pilot: 'Jack',  // 飞手
     acreage: 60.3, // 面积

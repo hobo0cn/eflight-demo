@@ -35,8 +35,9 @@
                         </p>
                         <p>
                             <a class="text-border" [ngClass]="{'text-primary':task.isUrgent}">加急</a>
-                            <a class="text-border" [ngClass]="{'text-primary':task.is3DModel}">三维</a>
-                            <a [routerLink]=" ['./result-detail']" *ngIf="task.is3DModel">3D成果</a>
+                            <a class="text-border" [ngClass]="{'text-primary':task.is3DModel}"
+                            [routerLink]=" ['./result-detail']">三维</a>
+                            <!-- <a [routerLink]=" ['./result-detail']" *ngIf="task.is3DModel">3D成果</a> -->
                             <a class="text-border" [ngClass]="{'text-primary':task.isReport}">生成报告</a>
                             <!--是否加急：{{task.isUrgent}} 是否3D建模: {{task.is3DModel}}
                             是否需要报告: {{task.isReport}}-->
