@@ -54,7 +54,7 @@ header .btn-navicon {
     color: #FFFFFF;
     background-repeat: no-repeat;
     background-position: center;
-    background-size: cover;
+    background-size: contain;
 }
 
 header .btn-navicon.pull-left {
@@ -74,4 +74,8 @@ header .btn-back {
 
 header .btn-add {
     background-image: url(/assets/img/icon/plus.png);
+}
+
+header .btn-select {
+    background-image: url(/assets/img/icon/search1.png);
 }
