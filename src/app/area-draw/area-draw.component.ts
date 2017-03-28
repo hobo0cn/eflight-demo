@@ -59,7 +59,7 @@ export class AreaDrawComponent implements OnInit {
         center: L.latLng(23.4394111680718, 107.551593359032),
         zoom: 14,
 
-        layers: [this.mapService.baseMaps.AeroMap]
+        layers: [this.mapService.createBaselayer()]
     });
 
 
