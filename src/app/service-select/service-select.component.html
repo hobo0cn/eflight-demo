@@ -1,37 +1,37 @@
 <!-- <h2>服务类型选择</h2> -->
 <header class="app-header">
-    <a class="pull-left btn-navicon btn-back" (click)="back()"><i class="glyphicon glyphicon-chevron-left"></i></a>
+    <a class="pull-left btn-navicon btn-back" (click)="back()"></a>
     <span class="title">服务类型选择</span>
 </header>
 <ul class="services">
-  <li (click)="newServiceRequest(1)" *ngFor="let s of services">
-    <div class="panel">
-      <div class="panel-body">
-        <div class="row">
-          <div class="col-xs-4">
-            <img src={{s.img}} class="service-thumbail"/>
-          </div>
-          <div class="col-xs-7">
-            <div class="service-title">
-                {{s.title}}
-            </div>
-              <div class="service-subtitle">
-                  林地/玉米/花生/小麦/水稻
-              </div>
-          </div>
-          <div col="col-xs-1">
-            <p></p>
-            <p></p>
-            <p>
-            </p>
-            <a class="pull-left btn-navicon btn-back" (click)="newServiceRequest(1)"><i class="glyphicon glyphicon-chevron-right"></i></a>
+    <li (click)="newServiceRequest(1)" *ngFor="let s of services">
+        <div class="panel">
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-xs-4">
+                        <img src={{s.img}} class="service-thumbail" />
+                    </div>
+                    <div class="col-xs-7">
+                        <div class="service-title">
+                            {{s.title}}
+                        </div>
+                        <div class="service-subtitle">
+                            林地/玉米/花生/小麦/水稻
+                        </div>
+                    </div>
+                    <div col="col-xs-1">
+                        <p></p>
+                        <p></p>
+                        <p>
+                        </p>
+                        <a class="pull-left btn-navicon btn-back" (click)="newServiceRequest(1)"><i class="glyphicon glyphicon-chevron-right"></i></a>
 
-          </div>
+                    </div>
+                </div>
+                <hr />
+            </div>
         </div>
-        <hr />
-      </div>
-    </div>
-  </li>
+    </li>
 </ul>
 <!-- <p>
   <button class="service2"

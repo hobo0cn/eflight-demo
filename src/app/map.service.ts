@@ -40,8 +40,10 @@ export class MapService {
                 attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
             })
         };
+    }
 
-
+    createBaselayer():any{
+       return  L.tileLayer("http://api.aeromap.cn/map/GoogleChinaHybridMap/{z}/{y}/{x}?X-API-KEY=f73a670d-20a2-329c-9c18-4b88c6eba8c7");
     }
 
     // 添加结果图层
@@ -119,20 +121,24 @@ export class MapService {
         });
     }
 
+    showSelectLayer(functionFeatureClick: any){
+        this.featureClickFunction = functionFeatureClick;
+        this.http.get("../assets/geojson/service.json")
+                .map(res => res.json())
+                .subscribe(result => {
+                    this.vtLayer =  L.geoJSON(result, {
+                        onEachFeature: this.onEachFeature.bind(this)
+                    });
+                    this.vtLayer.addTo(this.map);
+                });
+    }
+
     toggleSelectLayer(functionFeatureClick: any) {
-      this.featureClickFunction = functionFeatureClick;
       if (this.vtLayer) {
           this.map.removeLayer(this.vtLayer);
           delete this.vtLayer;
       } else {
-          this.http.get("../assets/geojson/service.json")
-              .map(res => res.json())
-              .subscribe(result => {
-                  this.vtLayer =  L.geoJSON(result, {
-                    onEachFeature: this.onEachFeature.bind(this)
-                  });
-                  this.vtLayer.addTo(this.map);
-              });
+        this.showSelectLayer(functionFeatureClick);
           // this.loadDrawCtrl();
       }
     }

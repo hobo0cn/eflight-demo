@@ -48,7 +48,7 @@ export class AreaSelectComponent implements OnInit {
         zoomControl: false,
         center: L.latLng(23.4394111680718, 107.551593359032),
         zoom: 5,
-        layers: [this.mapService.baseMaps.AeroMap]
+        layers: [this.mapService.createBaselayer()]
     });
 
     L.control.zoom({ position: "bottomright" }).addTo(map);
@@ -57,7 +57,7 @@ export class AreaSelectComponent implements OnInit {
     this.mapService.map = map;
 
     // this.mapService.loadResultLayer();
-    this.mapService.toggleSelectLayer(this.selectArea.bind(this));
+    this.mapService.showSelectLayer(this.selectArea.bind(this));
 
 
     // this.geocoder.getCurrentLocation()
